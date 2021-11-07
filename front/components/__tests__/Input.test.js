@@ -23,4 +23,18 @@ describe('Input', () => {
         wrapper.find('input').simulate('change', { target: { value: '666-6-6666-6666-6' } });
         expect(wrapper.instance().state.isbn).toBe('666-6-6666-6666-6');
     });
+
+    it('formatMessage state is true when right isbn', () => {
+        const wrapper = shallow(<Input />);
+        wrapper.find('input').simulate('change', { target: { value: '666-6-6666-6666-6' } });
+        wrapper.find('button').simulate('click')
+        expect(wrapper.instance().state.formatMessage).toBe(false);
+    });
+
+    it('formatMessage state is true when wrong isbn', () => {
+        const wrapper = shallow(<Input />);
+        wrapper.find('input').simulate('change', { target: { value: '666-6' } });
+        wrapper.find('button').simulate('click')
+        expect(wrapper.instance().state.formatMessage).toBe(true);
+    });
 });
