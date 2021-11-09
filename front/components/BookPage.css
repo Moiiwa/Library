@@ -1,0 +1,18 @@
+.book{
+    display: flex;
+    justify-content: center;
+}
+
+.book-info{
+    padding: 2rem;
+}
+
+.book-cover{
+    width: 300px;
+    height: 500px;
+    padding: 2rem;
+}
+
+.description{
+    width: 600px;
+}
