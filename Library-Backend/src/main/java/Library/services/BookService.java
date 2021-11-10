@@ -14,4 +14,8 @@ public class BookService {
     public void addBook(Book book){
         repository.save(book);
     }
+
+    public Book getBook(String owner, String title){
+        return repository.getByOwnerAndTitle(owner, title);
+    }
 }
