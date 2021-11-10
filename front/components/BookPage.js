@@ -5,26 +5,63 @@ class BookPage extends React.Component {
 
     constructor(props) {
         super(props);
-        this.book = {
-            bookCover: 'https://images-na.ssl-images-amazon.com/images/I/61ZKNw0xixL.jpg',
-            bookTitle: 'Book cover design',
-            authors: ["John", "Dalb"],
-            description: "Lorem Ipsum - это текст-\"рыба\", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной \"рыбой\" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum."
-        }
+        this.noCover = "https://lightning.od-cdn.com/static/img/no-cover_en_US.a8920a302274ea37cfaecb7cf318890e.jpg"
     }
 
     render() {
         return (
             <div className="book">
 
-                <img className={"book-cover"} src={this.book.bookCover}  alt={"Book Cover"}/>
+                <img className={"book-cover"} src={this.noCover} alt={"Book Cover"}/>
 
                 <div className="{book-info}">
-                    <h1>{this.book.bookTitle}</h1>
-                    <b>Authors: </b>
-                    <p>{this.book.authors}</p>
-                    <b>Description:</b>
-                    <p className={"description"}>{this.book.description}</p>
+                    <h1>{this.props.data.title}</h1>
+
+                    {this.props.data.authors !== undefined ?
+                        <div>
+                            <b>Authors: </b>
+                            {this.props.data.authors.map(author => <p>{author.key}</p>)}
+                        </div>
+                        : null}
+                    {this.props.data.publisher !== undefined ?
+                        <div>
+                            <b>Publisher: </b>
+                            <p>{this.props.data.publisher}</p>
+                        </div>
+                        : null}
+                    {this.props.data.publishedDate !== undefined ?
+                        <div>
+                            <b>Published date: </b>
+                            <p>{this.props.data.publishedDate}</p>
+                        </div>
+                        : null}
+                    {this.props.data.description !== undefined ?
+                        <div>
+                            <b>Description: </b>
+                            <p className={"description"}>{this.props.description}</p>
+                        </div>
+                        :
+                        <div><b>Description: </b>
+                            <p className={"description"}>No description</p>
+                        </div>
+                    }
+                    {this.props.data.categories !== undefined ?
+                        <div>
+                            <b>Categories: </b>
+                            <p>{this.props.data.categories}</p>
+                        </div>
+                        :
+                        <div>
+                            <b>Categories: </b>
+                            <p className={"description"}>No categories</p>
+                        </div>
+                    }
+                    {this.props.data.number_of_pages !== undefined ?
+                        <div>
+                            <b>Pages: </b>
+                            <p>{this.props.data.number_of_pages}</p>
+                        </div>
+                        : null}
                 </div>
             </div>
         )
