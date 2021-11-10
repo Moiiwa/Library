@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoField renders correctly 1`] = `
+<div>
+  <p
+    className="inline"
+    id="infoFieldLabel"
+  />
+  <p
+    className="inline"
+    id="infoFieldValue"
+  />
+</div>
+`;

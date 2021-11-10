@@ -28,4 +28,7 @@ public class Book {
 
     @Column(name = "selling_status")
     private String sellingStatus;
+
+    @Column(name = "number_of_copies")
+    private Integer numberOfCopies;
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import { getBookWithIsbn } from '../api/isbn'
 import { checkIsbnFormat } from './utils'
 import BookPage from "./BookPage";
+import { postBook } from '../api/book'
 
 class Input extends React.Component {
 
@@ -29,6 +30,8 @@ class Input extends React.Component {
             const data = await getBookWithIsbn(this.state.isbn);
             this.data = data
             this.setState({bookFound: true})
+            const res = await postBook(data.title, data.authors[0].key)
+            console.log(res)
         } else {
             this.setState({ formatMessage: true });
         }
