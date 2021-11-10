@@ -1,6 +1,7 @@
 import React from 'react'
 import { getBookWithIsbn } from '../api/isbn'
 import { checkIsbnFormat } from './utils'
+import BookPage from "./BookPage";
 
 class Input extends React.Component {
 
@@ -8,8 +9,11 @@ class Input extends React.Component {
         super(props);
         this.state = {
             isbn: '',
-            formatMessage: false
+            formatMessage: false,
+            bookFound: false
         };
+
+        this.data = {}
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,7 +27,8 @@ class Input extends React.Component {
         if (checkIsbnFormat(this.state.isbn)) {
             this.setState({ formatMessage: false });
             const data = await getBookWithIsbn(this.state.isbn);
-            console.log(data);
+            this.data = data
+            this.setState({bookFound: true})
         } else {
             this.setState({ formatMessage: true });
         }
@@ -44,6 +49,9 @@ class Input extends React.Component {
                     onChange={this.handleChange}
                 />
                 <button onClick={this.handleSubmit}>Find book</button>
+
+                {this.state.bookFound ? <BookPage data = {this.data}/>: null}
+
             </div>
         );
     }
