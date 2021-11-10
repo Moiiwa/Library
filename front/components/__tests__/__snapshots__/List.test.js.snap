@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List renders correctly with props 1`] = `
+<ul
+  id="list"
+>
+  <li
+    key="1"
+  >
+    title
+  </li>
+</ul>
+`;

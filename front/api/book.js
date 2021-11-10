@@ -12,14 +12,49 @@ const postBook = async (title, author) => {
             title: title
         })
     })
-    .then((response) => {
-        console.dir(response)
-        if (!response.ok) {
-            throw Error(response.statusText)
-        }
-        return response
-    })
-    .catch((err) => { console.log('Error: ' + err) });
+        .then((response) => {
+            console.dir(response)
+            if (!response.ok) {
+                throw Error(response.statusText)
+            }
+            return response
+        })
+        .catch((err) => { console.log('Error: ' + err) });
 }
 
-export { postBook }
+const getBooks = async () => {
+    return fetch(`${BASE_LINK}/get_books`, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+        .then((response) => {
+            if (!response.ok) {
+                throw Error(response.statusText)
+            }
+            return response.json()
+        })
+        .catch((err) => { console.log('Error: ' + err) });
+}
+
+const getBook = async () => {
+    return fetch(`${BASE_LINK}/get_book?owner=HUY&title=ssss`, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+        .then((response) => {
+            console.dir(response)
+            if (!response.ok) {
+                throw Error(response.statusText)
+            }
+            return response.json()
+        })
+        .catch((err) => { console.log('Error: ' + err) });
+}
+
+export { postBook, getBooks, getBook }

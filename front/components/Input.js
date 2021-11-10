@@ -1,8 +1,8 @@
 import React from 'react'
 import { getBookWithIsbn } from '../api/isbn'
 import { checkIsbnFormat } from './utils'
-import BookPage from "./BookPage";
-import { postBook } from '../api/book'
+import BookPage from '../pages/BookPage/BookPage';
+import { postBook, getBooks, getBook } from '../api/book'
 
 class Input extends React.Component {
 
@@ -26,12 +26,14 @@ class Input extends React.Component {
 
     handleSubmit = async () => {
         if (checkIsbnFormat(this.state.isbn)) {
-            this.setState({ formatMessage: false });
-            const data = await getBookWithIsbn(this.state.isbn);
-            this.data = data
-            this.setState({bookFound: true})
-            const res = await postBook(data.title, data.authors[0].key)
-            console.log(res)
+            // this.setState({ formatMessage: false });
+            // const data = await getBookWithIsbn(this.state.isbn);
+            // this.data = data
+            // this.setState({ bookFound: true })
+            // const res = await postBook(data.title, data.authors[0].key)
+
+            const listOfBooks = await getBooks()
+            console.log(listOfBooks)
         } else {
             this.setState({ formatMessage: true });
         }
@@ -53,7 +55,7 @@ class Input extends React.Component {
                 />
                 <button onClick={this.handleSubmit}>Find book</button>
 
-                {this.state.bookFound ? <BookPage data = {this.data}/>: null}
+                {this.state.bookFound ? <BookPage data={this.data} /> : null}
 
             </div>
         );

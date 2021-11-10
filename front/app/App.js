@@ -1,11 +1,11 @@
 import React from 'react'
 import Input from '../components/Input'
-import InfoField from '../components/InfoField/InfoField'
+import MainPage from '../pages/MainPage/MainPage'
 
 function App() {
     return (
         <React.Fragment>
-            <Input />
+            <MainPage />
         </React.Fragment>
     );
 }
