@@ -12,14 +12,14 @@ const postBook = async (title, author) => {
             title: title
         })
     })
-        .then((response) => {
-            console.dir(response)
-            if (!response.ok) {
-                throw Error(response.statusText)
-            }
-            return response
-        })
-        .catch((err) => { console.log('Error: ' + err) });
+    .then((response) => {
+        console.dir(response)
+        if (!response.ok) {
+            throw Error(response.statusText)
+        }
+        return response
+    })
+    .catch((err) => { console.log('Error: ' + err) });
 }
 
 export { postBook }
