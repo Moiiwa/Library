@@ -6,8 +6,6 @@ function App() {
     return (
         <React.Fragment>
             <Input />
-            <InfoField label='Title:' value='Kotiki' />
-            <InfoField label='Author:' value='Maria' />
         </React.Fragment>
     );
 }
