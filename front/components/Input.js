@@ -20,8 +20,11 @@ class Input extends React.Component {
 
     handleSubmit = async () => {
         const data = await getBookWithIsbn(this.state.isbn);
+        console.log(data)
         if (data) {
-            await postBook(data.title, data.authors[0].key)
+            if (data.authors) {
+                await postBook(data.title, data.authors[0].key)
+            } else await postBook(data.title)
         }
     }
 

@@ -42,7 +42,8 @@ class BookPage extends React.Component {
                         </div>
                         {this.state.bookData.author !== undefined ?
                             <InfoField label={'Authors:'} value={this.state.bookData.author} />
-                            : null}
+                            :
+                            <InfoField label={'Authors:'} value={'no'} />}
                         {this.state.bookData.publisher !== undefined ?
                             <InfoField label={'Publisher:'} value={this.state.bookData.publisher} />
                             : null}
