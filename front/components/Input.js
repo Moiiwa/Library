@@ -55,8 +55,6 @@ class Input extends React.Component {
                 />
                 <button onClick={this.handleSubmit}>Find book</button>
 
-                {this.state.bookFound ? <BookPage data={this.data} /> : null}
-
             </div>
         );
     }

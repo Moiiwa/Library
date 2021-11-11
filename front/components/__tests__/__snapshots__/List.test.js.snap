@@ -7,7 +7,12 @@ exports[`List renders correctly with props 1`] = `
   <li
     key="1"
   >
-    title
+    <Link
+      replace={false}
+      to="/book/1"
+    >
+      title
+    </Link>
   </li>
 </ul>
 `;

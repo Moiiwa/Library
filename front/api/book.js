@@ -39,8 +39,8 @@ const getBooks = async () => {
         .catch((err) => { console.log('Error: ' + err) });
 }
 
-const getBook = async () => {
-    return fetch(`${BASE_LINK}/get_book?owner=HUY&title=ssss`, {
+const getBook = async (id) => {
+    return fetch(`${BASE_LINK}/get_book?id=${id}`, {
         method: 'GET',
         headers: {
             'Accept': 'application/json',

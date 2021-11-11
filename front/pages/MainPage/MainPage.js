@@ -2,7 +2,6 @@ import React from 'react'
 import Input from '../../components/Input'
 import List from '../../components/List/List'
 import { getBooks } from '../../api/book'
-
 class MainPage extends React.Component {
 
     constructor(props) {
@@ -13,11 +12,9 @@ class MainPage extends React.Component {
         };
     }
 
-
     getData = async () => {
         await getBooks()
             .then(data => {
-                console.log(data[0])
                 this.setState({
                     loading: false,
                     booksList: data

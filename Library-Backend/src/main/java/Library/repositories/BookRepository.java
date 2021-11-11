@@ -8,4 +8,6 @@ public interface BookRepository extends JpaRepository<Book, Long>{
 
     public Book getByOwnerAndTitle(String owner, String title);
 
+    public Book getById(Long id);
+
 }

@@ -24,4 +24,8 @@ public class BookService {
     public Book getBook(String owner, String title){
         return repository.getByOwnerAndTitle(owner, title);
     }
+
+  public Book getBookById(Long id){
+    return repository.getById(id);
+  }
 }

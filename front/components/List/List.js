@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 class List extends React.Component {
 
@@ -7,12 +8,13 @@ class List extends React.Component {
     }
 
     render() {
+
         return (
             <ul id="list">
                 {this.props.list ?
                     this.props.list.map((el) => (
                         <li key={el.id}>
-                            {el.title}
+                            <Link to={`/book/${el.id}`}>{el.title}</Link>
                         </li>
                     ))
                     :

@@ -47,9 +47,9 @@ public class BookController {
   }
 
     @GetMapping("/get_book")
-    public ResponseEntity<Book> getBook(@RequestParam String owner, @RequestParam String title){
+    public ResponseEntity<Book> getBook(@RequestParam Long id){
         ResponseEntity response =
-                new ResponseEntity(bookService.getBook(owner, title),HttpStatus.OK);
+                new ResponseEntity(bookService.getBookById(id), HttpStatus.OK);
         return response;
     }
 }
