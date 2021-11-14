@@ -10,6 +10,10 @@ This is the Library management application whose goal is to make it easier for u
 
 You need to install frontend and backend part to obtain a working project.
 
+First of all clone this repo
+
+```git clone https://github.com/Moiiwa/Library.git```
+
 Frontend is written in React.js
 
 ```
@@ -18,6 +22,18 @@ cd front
 npm install  
 
 npm npm start  
+```
+
+Backend is written with Spring
+
+```
+cd Library-Backend 
+
+mvn clean install packages  
+
+cd target 
+
+java -jar <JAR_NAME> 
 ```
 
 #### User manual
