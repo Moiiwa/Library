@@ -6,11 +6,19 @@
 
 This is the Library management application whose goal is to make it easier for users to keep and exchange books
  
+Features of this web application:
+
+1. User can borrow book
+2. User can add book
+3. User can sell book
+4. User can rate book
+5. User can 
+
 #### Installation
 
 You need to install frontend and backend part to obtain a working project.
 
-First of all clone this repo
+Firstly clone this repo
 
 ```git clone https://github.com/Moiiwa/Library.git```
 
@@ -19,7 +27,7 @@ Frontend is written in React.js
 ```
 cd front  
 
-npm install  
+npm install --legacy-peer-deps 
 
 npm npm start  
 ```
@@ -37,6 +45,19 @@ java -jar <JAR_NAME>
 ```
 
 #### User manual
+
+You need to write the book's isbn in 111-1-1111-1111-1 format and click find button  
+
+![book input](front/screens/screen_manual_input_book.png)
+
+If the format of isbn is correct and such book is found you will get following page
+
+![book_input](front/screens/screen_manual_book_page.png)
+
+In case of the following message please check that your isbn is written in the correct format
+
+![input error](front/screens/screen_manual_error_input.png)
+
 
 ## Team
 - Daniyar Galimzhanov
