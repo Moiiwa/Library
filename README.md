@@ -12,7 +12,7 @@ Features of this web application:
 2. User can add book
 3. User can sell book
 4. User can rate book
-5. User can 
+
 
 #### Installation
 
