@@ -1,7 +1,26 @@
 # Library
 
-## Content
+### User documentation
+
+#### Description
+
 This is the Library management application whose goal is to make it easier for users to keep and exchange books
+ 
+#### Installation
+
+You need to install frontend and backend part to obtain a working project.
+
+Frontend is written in React.js
+
+```
+cd front  
+
+npm install  
+
+npm npm start  
+```
+
+#### User manual
 
 ## Team
 - Daniyar Galimzhanov
