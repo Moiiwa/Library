@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.sql.Timestamp;
 
 @Entity(name = "books")
 @Data
@@ -29,6 +30,15 @@ public class Book {
     @Column(name = "selling_status")
     private String sellingStatus;
 
-    @Column(name = "number_of_copies")
-    private Integer numberOfCopies;
+    @Column(name = "publisher")
+    private String publisher;
+
+    @Column(name = "published_date")
+    private Timestamp publishedDate;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "pages")
+    private Integer pages;
 }

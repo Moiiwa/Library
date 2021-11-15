@@ -21,22 +21,18 @@ public class BookController {
     BookService bookService;
 
     @PostMapping("/add_book")
-    public ResponseEntity addBook(@RequestBody AddBookDto addBookDto){
-        Book book = bookService.getBook(addBookDto.getOwner(),addBookDto.getTitle());
-        if (book == null) {
-            book = new Book();
-            book.setAuthor(addBookDto.getAuthor());
-            book.setTitle(addBookDto.getTitle());
-            book.setOwner(addBookDto.getOwner());
-            book.setSellingStatus(addBookDto.getSellingStatus());
-            book.setNumberOfCopies(1);
-            bookService.addBook(book);
-        } else {
-          int numberOfCopies = Optional.ofNullable(book.getNumberOfCopies()).orElse(0);
-          book.setNumberOfCopies(numberOfCopies + 1);
-            bookService.addBook(book);
-        }
-        return new ResponseEntity("Done",HttpStatus.OK);
+    public ResponseEntity addBook(@RequestBody AddBookDto addBookDto) {
+        Book book = new Book();
+        book.setAuthor(addBookDto.getAuthor());
+        book.setTitle(addBookDto.getTitle());
+        book.setOwner(addBookDto.getOwner());
+        book.setSellingStatus(addBookDto.getSellingStatus());
+        book.setPublisher(addBookDto.getPublisher());
+        book.setPublishedDate(addBookDto.getPublishedDate());
+        book.setDescription(addBookDto.getDescription());
+        book.setPages(addBookDto.getPages());
+        bookService.addBook(book);
+        return new ResponseEntity("Done", HttpStatus.OK);
     }
 
   @GetMapping("/get_books")
