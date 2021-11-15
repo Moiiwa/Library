@@ -20,6 +20,11 @@ public class BookController {
     @Autowired
     BookService bookService;
 
+    /**
+     * Endpoint for adding a book
+     * @param addBookDto
+     * @return returns http response with "Done" message if everything is ok
+     */
     @PostMapping("/add_book")
     public ResponseEntity addBook(@RequestBody AddBookDto addBookDto) {
         Book book = new Book();
@@ -27,6 +32,7 @@ public class BookController {
         book.setTitle(addBookDto.getTitle());
         book.setOwner(addBookDto.getOwner());
         book.setSellingStatus(addBookDto.getSellingStatus());
+        book.setHolder(addBookDto.getHolder());
         book.setPublisher(addBookDto.getPublisher());
         book.setPublishedDate(addBookDto.getPublishedDate());
         book.setDescription(addBookDto.getDescription());
@@ -35,17 +41,27 @@ public class BookController {
         return new ResponseEntity("Done", HttpStatus.OK);
     }
 
-  @GetMapping("/get_books")
-  public ResponseEntity<List<Book>> getAllBooks(){
-    ResponseEntity response =
-      new ResponseEntity(bookService.getAllBooks(),HttpStatus.OK);
-    return response;
-  }
+    /**
+     * Endpoint to get all the books
+     * @return list of books
+     */
+    @GetMapping("/get_books")
+    public ResponseEntity<List<Book>> getAllBooks() {
+        ResponseEntity response =
+                new ResponseEntity(bookService.getAllBooks(), HttpStatus.OK);
+        return response;
+    }
 
+    /**
+     * Endpoint for getting a book by id
+     * @param id id of a book
+     * @return book
+     */
     @GetMapping("/get_book")
-    public ResponseEntity<Book> getBook(@RequestParam Long id){
+    public ResponseEntity<Book> getBook(@RequestParam Long id) {
         ResponseEntity response =
                 new ResponseEntity(bookService.getBookById(id), HttpStatus.OK);
         return response;
     }
+
 }

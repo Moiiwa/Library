@@ -13,19 +13,28 @@ public class BookService {
     @Autowired
     BookRepository repository;
 
-    public void addBook(Book book){
+    /**
+     * Add book
+     * @param book book to add
+     */
+    public void addBook(Book book) {
         repository.save(book);
     }
 
-    public List<Book> getAllBooks(){
-    return repository.findAll();
-  }
-
-    public Book getBook(String owner, String title){
-        return repository.getByOwnerAndTitle(owner, title);
+    /**
+     * Get info about all books
+     * @return list of books
+     */
+    public List<Book> getAllBooks() {
+        return repository.findAll();
     }
 
-  public Book getBookById(Long id){
-    return repository.getById(id);
-  }
+    /**
+     * Get info about the book by its id
+     * @param id id of the book
+     * @return book
+     */
+    public Book getBookById(Long id) {
+        return repository.getById(id);
+    }
 }

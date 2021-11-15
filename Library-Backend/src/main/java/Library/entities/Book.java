@@ -30,6 +30,9 @@ public class Book {
     @Column(name = "selling_status")
     private String sellingStatus;
 
+    @Column
+    private String holder;
+
     @Column(name = "publisher")
     private String publisher;
 

@@ -16,6 +16,8 @@ public class AddBookDto {
 
     private String sellingStatus;
 
+    private String holder;
+
     private String publisher;
 
     private Timestamp publishedDate;
