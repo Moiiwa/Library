@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin
-@Controller
+@RestController
 public class BookController {
 
     @Autowired
