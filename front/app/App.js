@@ -1,13 +1,23 @@
 import React from 'react'
-import Input from '../components/Input'
-import InfoField from '../components/InfoField/InfoField'
+import MainPage from '../pages/MainPage/MainPage'
+import BookPage from '../pages/BookPage/BookPage'
+import {
+    Switch,
+    Route,
+} from "react-router-dom";
 
-function App() {
-    return (
-        <React.Fragment>
-            <Input />
-        </React.Fragment>
-    );
+class App extends React.Component {
+
+    render() {
+        return (
+            <React.Fragment>
+                <Switch>
+                    <Route exact path='/' component={MainPage} />
+                    <Route path='/book/:id' component={BookPage} />
+                </Switch>
+            </React.Fragment>
+        );
+    }
 }
 
 export default App;
