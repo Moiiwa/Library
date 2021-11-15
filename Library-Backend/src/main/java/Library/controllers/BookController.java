@@ -2,6 +2,7 @@ package Library.controllers;
 
 import Library.dto.AddBookDto;
 import Library.dto.GetBookDto;
+import Library.dto.SellRentBookDto;
 import Library.entities.Book;
 import Library.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +63,27 @@ public class BookController {
         ResponseEntity response =
                 new ResponseEntity(bookService.getBookById(id), HttpStatus.OK);
         return response;
+    }
+
+    /**
+     * Endpoint to sell or rent book, depending on field "transactionType"
+     * Sell - to sell, Rent - to rent
+     * @param body
+     * @return
+     */
+    @PostMapping("/sell_rent_book")
+    public ResponseEntity sellBook(@RequestBody SellRentBookDto body){
+        Book book = bookService.getBookById(body.getBookId());
+        if ("Sell".equals(body.getTransactionType())) {
+            book.setOwner(body.getBuyer());
+        }
+        if ("Sell".equals(body.getTransactionType()) || "Rent".equals(body.getTransactionType())){
+            book.setHolder(body.getBuyer());
+        } else {
+            return new ResponseEntity("Wrong transaction type",HttpStatus.BAD_REQUEST);
+        }
+        bookService.addBook(book);
+        return new ResponseEntity("Done", HttpStatus.OK);
     }
 
 }
