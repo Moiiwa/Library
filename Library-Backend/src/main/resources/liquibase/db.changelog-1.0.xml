@@ -1,0 +1,41 @@
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="1.0.1" author="moiwa">
+        <sql>
+            create table books
+            (
+            id bigserial not null,
+            title varchar not null,
+            author varchar not null,
+            owner varchar not null,
+            selling_status varchar not null,
+            holder varchar not null
+            );
+
+            create unique index books_id_uindex
+            on books (id);
+
+            alter table books
+            add constraint books_pk
+            primary key (id);
+        </sql>
+    </changeSet>
+    <changeSet id="1.0.2" author="moiwa">
+        <sql>
+            alter table books
+            add publisher varchar;
+
+            alter table books
+            add published_date timestamp;
+
+            alter table books
+            add description varchar;
+
+            alter table books
+            add pages int;
+        </sql>
+    </changeSet>
+</databaseChangeLog>
