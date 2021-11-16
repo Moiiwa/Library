@@ -1,18 +1,15 @@
 package Library.controllers;
 
 import Library.dto.AddBookDto;
-import Library.dto.GetBookDto;
 import Library.dto.SellRentBookDto;
 import Library.entities.Book;
 import Library.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @CrossOrigin
 @RestController
