@@ -8,7 +8,14 @@ class BookPage extends React.Component {
         this.noCover = "https://lightning.od-cdn.com/static/img/no-cover_en_US.a8920a302274ea37cfaecb7cf318890e.jpg"
     }
 
+
+
     render() {
+
+        function isRadioSelected(value){}
+
+        function handleRadioClicked(e){}
+
         return (
             <div className="book">
 
@@ -62,10 +69,27 @@ class BookPage extends React.Component {
                             <p>{this.props.data.number_of_pages}</p>
                         </div>
                         : null}
+
+
+
+
+                    <input
+                        type="checkbox"
+                        value="sell"
+                        checked={this.isRadioSelected("sell")}
+                        onChange={this.handleRadioClicked} />
+
+                    <input
+                        type="checkbox"
+                        value="share"
+                        checked={this.isRadioSelected("sell")}
+                        onChange={this.handleRadioClicked} />
+
                 </div>
             </div>
         )
     }
+    // 978-5-1710-8287-1
 
 }
 
