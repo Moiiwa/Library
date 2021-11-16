@@ -6,15 +6,21 @@ class BookPage extends React.Component {
     constructor(props) {
         super(props);
         this.noCover = "https://lightning.od-cdn.com/static/img/no-cover_en_US.a8920a302274ea37cfaecb7cf318890e.jpg"
+        this.state = {
+            shareState: false,
+            sellState: false
+        }
     }
 
+    flipShare(){
+        this.setState({shareState: !this.state.shareState})
+    }
 
+    flipSell(){
+        this.setState({sellState: !this.state.sellState })
+    }
 
     render() {
-
-        function isRadioSelected(value){}
-
-        function handleRadioClicked(e){}
 
         return (
             <div className="book">
@@ -71,24 +77,33 @@ class BookPage extends React.Component {
                         : null}
 
 
+                    <input
+                        id="sell_box"
+                        type="checkbox"
+                        checked={this.state.sellState}
+                        onChange={this.flipSell.bind(this)}/>
 
+                    <label for = "sell_box">Sell</label>
 
                     <input
+                        id="share_box"
                         type="checkbox"
-                        value="sell"
-                        checked={this.isRadioSelected("sell")}
-                        onChange={this.handleRadioClicked} />
+                        checked={this.state.shareState}
+                        onChange={this.flipShare.bind(this)}/>
 
-                    <input
-                        type="checkbox"
-                        value="share"
-                        checked={this.isRadioSelected("sell")}
-                        onChange={this.handleRadioClicked} />
+                    <label htmlFor="share_box">Share</label>
+
+                    <button>
+                        Add book
+                    </button>
 
                 </div>
+
+
             </div>
         )
     }
+
     // 978-5-1710-8287-1
 
 }
