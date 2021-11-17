@@ -1,6 +1,16 @@
 const BASE_LINK = 'http://localhost:8000'
 
-const postBook = async (title, author) => {
+const postBook = async (
+    title, 
+    author, 
+    owner, 
+    sellingStatus, 
+    holder,
+    publisher,
+    date,
+    description,
+    pages
+    ) => {
     return fetch(`${BASE_LINK}/add_book`, {
         method: 'POST',
         headers: {
@@ -10,13 +20,13 @@ const postBook = async (title, author) => {
         body: JSON.stringify({
             author: author,
             title: title,
-            owner: 'owner',
-            sellingStatus:
-                false, holder:
-                'holder', publisher:
-                'publisher', publishedDate: new Date('December 17, 1995 03:24:00'),
-            description: 'description',
-            pages: 5
+            owner: owner,
+            sellingStatus: sellingStatus,
+            holder: holder,
+            publisher: publisher,
+            publishedDate: date,
+            description: description,
+            pages: pages
         })
     })
         .then((response) => {
