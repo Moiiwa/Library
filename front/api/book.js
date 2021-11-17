@@ -9,7 +9,14 @@ const postBook = async (title, author) => {
         },
         body: JSON.stringify({
             author: author,
-            title: title
+            title: title,
+            owner: 'owner',
+            sellingStatus:
+                false, holder:
+                'holder', publisher:
+                'publisher', publishedDate: new Date('December 17, 1995 03:24:00'),
+            description: 'description',
+            pages: 5
         })
     })
         .then((response) => {
