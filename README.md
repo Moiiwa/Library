@@ -1,7 +1,63 @@
 # Library
 
-## Content
+### User documentation
+
+#### Description
+
 This is the Library management application whose goal is to make it easier for users to keep and exchange books
+ 
+Features of this web application:
+
+1. User can borrow book
+2. User can add book
+3. User can sell book
+4. User can rate book
+
+
+#### Installation
+
+You need to install frontend and backend part to obtain a working project.
+
+Firstly clone this repo
+
+```git clone https://github.com/Moiiwa/Library.git```
+
+Frontend is written in React.js
+
+```
+cd front  
+
+npm install --legacy-peer-deps 
+
+npm npm start  
+```
+
+Backend is written with Spring
+
+```
+cd Library-Backend 
+
+mvn clean install packages  
+
+cd target 
+
+java -jar <JAR_NAME> 
+```
+
+#### User manual
+
+You need to write the book's isbn in 111-1-1111-1111-1 format and click find button  
+
+![book input](front/screens/screen_manual_input_book.png)
+
+If the format of isbn is correct and such book is found you will get following page
+
+![book_input](front/screens/screen_manual_book_page.png)
+
+In case of the following message please check that your isbn is written in the correct format
+
+![input error](front/screens/screen_manual_error_input.png)
+
 
 ## Team
 - Daniyar Galimzhanov
@@ -32,30 +88,30 @@ User story number | User story | Task |
 [#9](https://github.com/Moiiwa/Library/issues/9) | As a user I want to be able to send and approve friend requests | Add users authentification and authorization modules | 
 [#9](https://github.com/Moiiwa/Library/issues/9) | | Add ability to add friends | 
 
-### Milestones -> Tasks
+### Sprints -> Tasks
 
-Milestone | Tasks |
+Sprints | Tasks |
 | --- | --- | 
-Milestone 1 |  | 
+Sprint 1 |  | 
 | | Add ability to identify book with Isbn | 
 | | Create the book card| 
-Milestone 2 |  | 
+Sprint 2 |  | 
 | | Add to book share status check ability | 
 | | Add to book sell status check ability | 
-Milestone 3 |  | 
+Sprint 3 |  | 
 | | Add users authentification and authorization modules | 
-Milestone 4 |  | 
+Sprint 4 |  | 
 | | Create an ability to notify the owner about the borrow wish | 
 | | Create an ability to notify the client about the return day |
 | | Add an ability to left feedback |
-Milestone 5 |  | 
+Sprint 5 |  | 
 | | Add ability to add friends | 
 
-### Milestone 1
+### Sprint 1
 
 Task | Small tasks | Acceptance tests |
 | --- | --- | --- |
-Milestone 1 |  |  |
+Sprint 1 |  |  |
 | Add ability to identify book with Isbn | Create the Isbn search field in frontend | Tests coverage at least 80% |
 |  | Connect the scaner with the database of Isbns | It detects 20% of example books | 
 | Create the book card | Save information about the book in db | All CRD operations work |
