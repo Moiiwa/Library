@@ -1,6 +1,6 @@
 # Library
 
-### User documentation
+## User documentation
 
 #### Description
 
@@ -13,8 +13,9 @@ Features of this web application:
 3. User can sell book
 4. User can rate book
 
-
-#### Installation
+#### Web site
+To check the web site go to http://34.217.9.107:8080
+#### Manual installation
 
 You need to install frontend and backend part to obtain a working project.
 
@@ -46,49 +47,49 @@ java -jar <JAR_NAME>
 
 #### User manual
 
-You need to write the book's isbn in 111-1-1111-1111-1 format and click find button  
+You need to write the book's isbn with numbers and dashes and click find button  
 
 ![book input](front/screens/screen_manual_input_book.png)
 
 If the format of isbn is correct and such book is found you will get following page
 
+![book_input](front/screens/screen_manual_books_list.png)
+
+By clicking on the book name from the list you will get the book page with detailed information
+
 ![book_input](front/screens/screen_manual_book_page.png)
 
-In case of the following message please check that your isbn is written in the correct format
+## Process organisation
+#### Team
+- Daniyar Galimzhanov - frontend
+- Anna Gorb - frontend
+- Mikhail Gudkov - backend
 
-![input error](front/screens/screen_manual_error_input.png)
+#### Branching policy
+Developer Branch Workflow - all work in progress is in different branches, but then will be merged to main
 
-
-## Team
-- Daniyar Galimzhanov
-- Anna Gorb
-- Mikhail Gudkov
-
-## Branching policy
-Developer Branch Workflow - all work in progress is in different branches, buts then will be merged to main
-
-## Tools
+#### Tools
 - Backend - Spring
 - Frontend - React
-- CI - Docker, GitHub Actions, AWS
+- CI - Docker, AWS
 
 ## Product Backlog
 
-### User stories -> Tasks
+#### User stories -> Tasks
 
-User story number | User story | Task |
-| --- | --- | --- | 
-[#2](https://github.com/Moiiwa/Library/issues/2) | As a book owner I want to be able to share books | Add to book share status check ability | 
-[#3](https://github.com/Moiiwa/Library/issues/3) | As a book owner I want to be able to add new books | Create the book card | 
-[#4](https://github.com/Moiiwa/Library/issues/4) | As a book owner I want perform as few steps as possible to add new book | Add ability to identify book with Isbn | 
-[#5](https://github.com/Moiiwa/Library/issues/5) | As a client I want to be able to borrow books | Create an ability to notify the owner about the borrow wish | 
-[#6](https://github.com/Moiiwa/Library/issues/6) | As a client I want to be reminded when I should return book to owner | Create an ability to notify the client about the return day | 
-[#7](https://github.com/Moiiwa/Library/issues/7) | As a book owner I want to get feedback about my books from other users | Add an ability to left feedback | 
-[#8](https://github.com/Moiiwa/Library/issues/8) | As a book owner I want to be able to sell books | Add to book sell status check ability | 
-[#9](https://github.com/Moiiwa/Library/issues/9) | As a user I want to be able to send and approve friend requests | Add users authentification and authorization modules | 
-[#9](https://github.com/Moiiwa/Library/issues/9) | | Add ability to add friends | 
+User story number | User story | Task | Status
+| --- | --- | --- | --- |
+[#2](https://github.com/Moiiwa/Library/issues/2) | As a book owner I want to be able to share books | Add to book share status check ability | Done |
+[#3](https://github.com/Moiiwa/Library/issues/3) | As a book owner I want to be able to add new books | Create the book card | Done |
+[#4](https://github.com/Moiiwa/Library/issues/4) | As a book owner I want perform as few steps as possible to add new book | Add ability to identify book with Isbn | Done |
+[#5](https://github.com/Moiiwa/Library/issues/5) | As a client I want to be able to borrow books | Create an ability to notify the owner about the borrow wish | |
+[#6](https://github.com/Moiiwa/Library/issues/6) | As a client I want to be reminded when I should return book to owner | Create an ability to notify the client about the return day | |
+[#7](https://github.com/Moiiwa/Library/issues/7) | As a book owner I want to get feedback about my books from other users | Add an ability to left feedback | |
+[#8](https://github.com/Moiiwa/Library/issues/8) | As a book owner I want to be able to sell books | Add to book sell status check ability | Done |
+[#9](https://github.com/Moiiwa/Library/issues/9) | As a user I want to be able to send and approve friend requests | Add users authentification and authorization modules | |
+[#9](https://github.com/Moiiwa/Library/issues/9) | | Add ability to add friends |  |
 
-### Sprints -> Tasks
+#### Sprints -> Tasks
 
 Sprints | Tasks |
 | --- | --- | 
@@ -98,6 +99,7 @@ Sprint 1 |  |
 Sprint 2 |  | 
 | | Add to book share status check ability | 
 | | Add to book sell status check ability | 
+| | Create the CI |
 Sprint 3 |  | 
 | | Add users authentification and authorization modules | 
 Sprint 4 |  | 
@@ -107,12 +109,25 @@ Sprint 4 |  |
 Sprint 5 |  | 
 | | Add ability to add friends | 
 
-### Sprint 1
+#### Sprint 1
 
-Task | Small tasks | Acceptance tests |
-| --- | --- | --- |
-Sprint 1 |  |  |
-| Add ability to identify book with Isbn | Create the Isbn search field in frontend | Tests coverage at least 80% |
-|  | Connect the scaner with the database of Isbns | It detects 20% of example books | 
-| Create the book card | Save information about the book in db | All CRD operations work |
-|  | Display info from db on the book page | Title and Author should be filled |
+Task | Small tasks | Acceptance tests | Status |
+| --- | --- | --- | --- |
+Sprint 1 |  |  |  |
+| Add ability to identify book with Isbn | Create the Isbn search field in frontend | Tests coverage at least 80% | Done |
+|  | Connect the scaner with the database of Isbns | It detects 20% of example books |  Done |
+| Create the book card | Save information about the book in db | All CRD operations work | Done |
+|  | Display info from db on the book page | Title and Author should be filled | Done |
+
+#### Sprint 2
+
+Task | Small tasks | Acceptance tests | Status |
+| --- | --- | --- | --- |
+Sprint 2 |  |  |  |
+| Add to book share status check ability | Connect list of books with get endpoint | All books after isbn search are displayed in the list | Done |
+|  | Connect get book api with book page | Display book page after click on book name | Done |
+|  | Create share check box on the book page | Check box is clickable | Done |
+| Add to book sell status check ability | Create put endpoint for book with sell and share status update | sell status changes in bd | Done |
+|  | Create sell check box on the book page | Check box is clickable | Done |
+| Create the CI | Dockerize everything | App starts from docker | Done |
+
