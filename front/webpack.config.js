@@ -9,7 +9,11 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index_bundle.js'
     },
-    //define the type of transformations that gonna be maked on our code
+    devServer: {
+        historyApiFallback: true,
+        port: 8080,
+        open: true
+    },
     module: {
         rules: [
             {

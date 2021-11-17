@@ -1,8 +1,6 @@
 import React from 'react'
 import { getBookWithIsbn } from '../api/isbn'
-import { checkIsbnFormat } from './utils'
-import BookPage from "./BookPage";
-import { postBook } from '../api/book'
+import { postBook, getBooks } from '../api/book'
 
 class Input extends React.Component {
 
@@ -10,11 +8,7 @@ class Input extends React.Component {
         super(props);
         this.state = {
             isbn: '',
-            formatMessage: false,
-            bookFound: false
         };
-
-        this.data = {}
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,25 +19,18 @@ class Input extends React.Component {
     }
 
     handleSubmit = async () => {
-        if (checkIsbnFormat(this.state.isbn)) {
-            this.setState({ formatMessage: false });
-            const data = await getBookWithIsbn(this.state.isbn);
-            this.data = data
-            this.setState({bookFound: true})
-            const res = await postBook(data.title, data.authors[0].key)
-            console.log(res)
-        } else {
-            this.setState({ formatMessage: true });
+        const data = await getBookWithIsbn(this.state.isbn);
+        console.log(data)
+        if (data) {
+            if (data.authors) {
+                await postBook(data.title, data.authors[0].key)
+            } else await postBook(data.title)
         }
     }
 
     render() {
         return (
             <div>
-                {this.state.formatMessage ?
-                    <div style={{ color: 'red' }}>Isbn should be in 111-1-1111-1111-1 format</div> :
-                    null
-                }
                 <input
                     type='text'
                     placeholder='111-1-1111-1111-1'
@@ -52,8 +39,6 @@ class Input extends React.Component {
                     onChange={this.handleChange}
                 />
                 <button onClick={this.handleSubmit}>Find book</button>
-
-                {this.state.bookFound ? <BookPage data = {this.data}/>: null}
 
             </div>
         );
