@@ -43,6 +43,17 @@ cd target
 
 java -jar <JAR_NAME> 
 ```
+In case you want to run backend in Docker, you have to use the next commands
+
+```
+cd Library-Backend 
+
+mvn clean install package -DskipTests 
+
+docker build -t moiwa/library_server .
+
+docker-compose up                     
+```
 
 #### User manual
 
