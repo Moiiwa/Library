@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  app:
+    image: moiwa/library_server:latest
+    container_name: app
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db
+    environment:
+      - POSTGRES_USER=moiwa
+      - POSTGRES_PASSWORD=moiwa
+      - POSTGRES_DB=map_lib
