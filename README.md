@@ -70,6 +70,8 @@ By clicking on the book name from the list you will get the book page with detai
 
 ![book_input](front/screens/screen_manual_book_page.png)
 
+On this page you can set up the selling and sharing status to allow other user to borrow or buy your book
+
 ## Process organisation
 #### Team
 - Daniyar Galimzhanov - frontend
@@ -127,7 +129,7 @@ Task | Small tasks | Acceptance tests | Status |
 Sprint 1 |  |  |  |
 | Add ability to identify book with Isbn | Create the Isbn search field in frontend | Tests coverage at least 80% | Done |
 |  | Connect the scaner with the database of Isbns | It detects 20% of example books |  Done |
-| Create the book card | Save information about the book in db | All CRD operations work | Done |
+| Create the book card | Save information about the book in db | All create/read operations work | Done |
 |  | Display info from db on the book page | Title and Author should be filled | Done |
 
 #### Sprint 2
