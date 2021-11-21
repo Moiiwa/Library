@@ -1,8 +1,8 @@
 const BASE_LINK = 'http://localhost:8000'
 
 const postBook = async (
-    title, 
-    author, 
+    author,
+    title,  
     owner, 
     sellingStatus, 
     holder,
