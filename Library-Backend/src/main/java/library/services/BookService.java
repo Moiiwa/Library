@@ -1,7 +1,7 @@
-package Library.services;
+package library.services;
 
-import Library.entities.Book;
-import Library.repositories.BookRepository;
+import library.entities.Book;
+import library.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +35,7 @@ public class BookService {
      * @return book
      */
     public Book getBookById(Long id) {
-        return repository.getById(id);
+      return repository.getById(id);
     }
+
 }

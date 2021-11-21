@@ -1,4 +1,4 @@
-package Library.entities;
+package library.entities;
 
 import lombok.Data;
 
@@ -28,7 +28,10 @@ public class Book {
     private String owner;
 
     @Column(name = "selling_status")
-    private String sellingStatus;
+    private Boolean sellingStatus;
+
+    @Column(name = "renting_status")
+    private Boolean rentingStatus;
 
     @Column
     private String holder;

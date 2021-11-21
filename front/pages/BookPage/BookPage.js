@@ -1,5 +1,5 @@
 import React from 'react'
-import { getBook } from '../../api/book'
+import { getBook, updateSharingStatus, updateSellingStatus } from '../../api/book'
 import InfoField from '../../components/InfoField/InfoField'
 
 import './BookPage.css'
@@ -9,13 +9,14 @@ class BookPage extends React.Component {
         super(props);
         this.noCover = "https://lightning.od-cdn.com/static/img/no-cover_en_US.a8920a302274ea37cfaecb7cf318890e.jpg"
         this.state = {
+            id: this.props.match.params.id,
             loading: true,
             bookData: null
         };
     }
 
     getBook = async () => {
-        const id = this.props.match.params.id
+        const id = this.state.id
         await getBook(id)
             .then(data => {
                 this.setState({
@@ -27,6 +28,40 @@ class BookPage extends React.Component {
 
     componentDidMount() {
         this.getBook();
+    }
+
+    changeSellingStatus = async () => {
+        let data = this.state.bookData
+        if (data.sellingStatus) {
+            await updateSellingStatus(false, this.state.id)
+            data.sellingStatus = false
+            this.setState({
+                bookData: data
+            });
+        } else {
+            await updateSellingStatus(true, this.state.id)
+            data.sellingStatus = true
+            this.setState({
+                bookData: data
+            });
+        }
+    }
+
+    changeSharingStatus = async () => {
+        let data = this.state.bookData
+        if (data.rentingStatus) {
+            await updateSharingStatus(false, this.state.id)
+            data.rentingStatus = false
+            this.setState({
+                bookData: data
+            });
+        } else {
+            await updateSharingStatus(true, this.state.id)
+            data.rentingStatus = true
+            this.setState({
+                bookData: data
+            });
+        }
     }
 
     render() {
@@ -56,6 +91,14 @@ class BookPage extends React.Component {
                         {this.state.bookData.number_of_pages !== undefined ?
                             <InfoField label={'Pages:'} value={this.state.bookData.number_of_pages} />
                             : null}
+                        <div>
+                            <input type="checkbox" id='sell' checked={this.state.bookData.sellingStatus} onChange={this.changeSellingStatus} />
+                            <label for='sell'>Allow selling</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id='share' checked={this.state.bookData.rentingStatus} onChange={this.changeSharingStatus} />
+                            <label for='share'>Allow sharing</label>
+                        </div>
                     </div>
                 }
             </div>
