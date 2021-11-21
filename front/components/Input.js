@@ -22,13 +22,13 @@ class Input extends React.Component {
         const data = await getBookWithIsbn(this.state.isbn);
         if (data) {
             await postBook(
-                data.title ? data.title : 'no title',
                 data.authors[0].key ? data.authors[0].key : 'no authors',
+                data.title ? data.title : 'no title',
                 'owner',
                 false,
                 'holder',
                 data.publishers ? data.publishers[0] : 'no publishers',
-                data.publish_date ? data.publish_date : new Date('December 17, 1995 03:24:00'),
+                new Date('December 17, 1995 03:24:00'),
                 data.description ? data.description.value : 'no description',
                 data.number_of_pages ? data.number_of_pages : 0
             )
