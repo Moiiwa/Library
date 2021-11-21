@@ -1,10 +1,11 @@
-package Library.controllers;
+package library.controllers;
 
-import Library.dto.AddBookDto;
-import Library.dto.SellRentBookDto;
-import Library.entities.Book;
-import Library.services.BookService;
-import junit.framework.TestCase;
+import library.dto.AddBookDto;
+import library.dto.ChangeRentStatusDto;
+import library.dto.ChangeSellStatusDto;
+import library.dto.SellRentBookDto;
+import library.entities.Book;
+import library.services.BookService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -42,7 +43,8 @@ public class BookControllerTest{
         addBookDto.setPages(3);
         addBookDto.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
         addBookDto.setPublisher("publisher");
-        addBookDto.setSellingStatus("status");
+        addBookDto.setSellingStatus(false);
+        addBookDto.setRentingStatus(false);
         addBookDto.setTitle("title");
 
         doNothing().when(bookService).addBook(any());
@@ -62,7 +64,8 @@ public class BookControllerTest{
         book.setPages(3);
         book.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
         book.setPublisher("publisher");
-        book.setSellingStatus("status");
+        book.setSellingStatus(false);
+        book.setRentingStatus(false);
         book.setTitle("title");
         bookList.add(book);
 
@@ -83,7 +86,8 @@ public class BookControllerTest{
         book.setPages(3);
         book.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
         book.setPublisher("publisher");
-        book.setSellingStatus("status");
+        book.setSellingStatus(false);
+        book.setRentingStatus(false);
         book.setTitle("title");
         book.setId(1337l);
 
@@ -102,7 +106,8 @@ public class BookControllerTest{
         book.setPages(3);
         book.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
         book.setPublisher("publisher");
-        book.setSellingStatus("status");
+        book.setSellingStatus(false);
+        book.setRentingStatus(false);
         book.setTitle("title");
         book.setId(1337l);
 
@@ -126,7 +131,8 @@ public class BookControllerTest{
         book.setPages(3);
         book.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
         book.setPublisher("publisher");
-        book.setSellingStatus("status");
+        book.setSellingStatus(false);
+        book.setRentingStatus(false);
         book.setTitle("title");
         book.setId(1337l);
 
@@ -134,9 +140,57 @@ public class BookControllerTest{
         sellRentBookDto.setBookId(1337l);
         sellRentBookDto.setBuyer("not moiwa");
         sellRentBookDto.setTransactionType("blabla");
-        doNothing().when(bookService).addBook(book);
         when(bookService.getBookById(book.getId())).thenReturn(book);
         ResponseEntity result = subj.sellBook(sellRentBookDto);
         assertEquals(result.getBody(),"Wrong transaction type");
     }
+
+    @Test
+    public void testChangeRentStatus() {
+      Book book = new Book();
+      book.setAuthor("moiwa");
+      book.setDescription("description");
+      book.setHolder("holder");
+      book.setOwner("owner");
+      book.setPages(3);
+      book.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
+      book.setPublisher("publisher");
+      book.setSellingStatus(false);
+      book.setRentingStatus(false);
+      book.setTitle("title");
+      book.setId(1337l);
+
+      ChangeRentStatusDto changeRentStatusDto = new ChangeRentStatusDto();
+      changeRentStatusDto.setId(1337l);
+      changeRentStatusDto.setRentStatus(true);
+      doNothing().when(bookService).addBook(book);
+      when(bookService.getBookById(book.getId())).thenReturn(book);
+      ResponseEntity result = subj.changeRentStatus(changeRentStatusDto);
+      assertEquals(result.getBody(),"Done");
+    }
+
+  @Test
+  public void testChangeSellStatus() {
+    Book book = new Book();
+    book.setAuthor("moiwa");
+    book.setDescription("description");
+    book.setHolder("holder");
+    book.setOwner("owner");
+    book.setPages(3);
+    book.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
+    book.setPublisher("publisher");
+    book.setSellingStatus(false);
+    book.setRentingStatus(false);
+    book.setTitle("title");
+    book.setId(1337l);
+
+    ChangeSellStatusDto changeSellStatusDto = new ChangeSellStatusDto();
+    changeSellStatusDto.setId(1337l);
+    changeSellStatusDto.setSellStatus(true);
+    doNothing().when(bookService).addBook(book);
+    when(bookService.getBookById(book.getId())).thenReturn(book);
+    ResponseEntity result = subj.changeSellStatus(changeSellStatusDto);
+    assertEquals(result.getBody(),"Done");
+  }
+
 }

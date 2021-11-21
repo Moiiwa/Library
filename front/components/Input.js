@@ -22,9 +22,10 @@ class Input extends React.Component {
         const data = await getBookWithIsbn(this.state.isbn);
         if (data) {
             await postBook(
-                data.authors[0].key ? data.authors[0].key : 'no authors',
+                data.authors ? data.authors[0].key : 'no authors',
                 data.title ? data.title : 'no title',
                 'owner',
+                false,
                 false,
                 'holder',
                 data.publishers ? data.publishers[0] : 'no publishers',
