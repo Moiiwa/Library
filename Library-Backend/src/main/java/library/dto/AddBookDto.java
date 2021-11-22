@@ -1,8 +1,7 @@
-package Library.dto;
+package library.dto;
 
 import lombok.Data;
 
-import javax.persistence.Column;
 import java.sql.Timestamp;
 
 @Data
@@ -14,7 +13,9 @@ public class AddBookDto {
 
     private String title;
 
-    private String sellingStatus;
+    private Boolean sellingStatus;
+
+    private Boolean rentingStatus;
 
     private String holder;
 

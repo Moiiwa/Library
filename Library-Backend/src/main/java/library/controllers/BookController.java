@@ -1,18 +1,17 @@
-package Library.controllers;
+package library.controllers;
 
-import Library.dto.AddBookDto;
-import Library.dto.GetBookDto;
-import Library.dto.SellRentBookDto;
-import Library.entities.Book;
-import Library.services.BookService;
+import library.dto.AddBookDto;
+import library.dto.ChangeRentStatusDto;
+import library.dto.ChangeSellStatusDto;
+import library.dto.SellRentBookDto;
+import library.entities.Book;
+import library.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -33,6 +32,7 @@ public class BookController {
         book.setTitle(addBookDto.getTitle());
         book.setOwner(addBookDto.getOwner());
         book.setSellingStatus(addBookDto.getSellingStatus());
+        book.setRentingStatus(addBookDto.getRentingStatus());
         book.setHolder(addBookDto.getHolder());
         book.setPublisher(addBookDto.getPublisher());
         book.setPublishedDate(addBookDto.getPublishedDate());
@@ -85,5 +85,31 @@ public class BookController {
         bookService.addBook(book);
         return new ResponseEntity("Done", HttpStatus.OK);
     }
+
+  /**
+   * Endpoint to change the rent status of the book
+   * @param body with id and rent status
+   * @return ok status
+   */
+  @PostMapping("/rent_status")
+  public ResponseEntity changeRentStatus(@RequestBody ChangeRentStatusDto body){
+    Book book = bookService.getBookById(body.getId());
+    book.setRentingStatus(body.getRentStatus());
+    bookService.addBook(book);
+    return new ResponseEntity("Done", HttpStatus.OK);
+  }
+
+  /**
+   * Endpoint to change the sell status of the book
+   * @param body with id and sell status
+   * @return ok status
+   */
+  @PostMapping("/sell_status")
+  public ResponseEntity changeSellStatus(@RequestBody ChangeSellStatusDto body){
+    Book book = bookService.getBookById(body.getId());
+    book.setSellingStatus(body.getSellStatus());
+    bookService.addBook(book);
+    return new ResponseEntity("Done", HttpStatus.OK);
+  }
 
 }

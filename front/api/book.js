@@ -1,6 +1,17 @@
 const BASE_LINK = 'http://localhost:8000'
 
-const postBook = async (title, author) => {
+const postBook = async (
+    author,
+    title,
+    owner,
+    sellingStatus,
+    rentingStatus,
+    holder,
+    publisher,
+    date,
+    description,
+    pages
+) => {
     return fetch(`${BASE_LINK}/add_book`, {
         method: 'POST',
         headers: {
@@ -9,7 +20,15 @@ const postBook = async (title, author) => {
         },
         body: JSON.stringify({
             author: author,
-            title: title
+            title: title,
+            owner: owner,
+            sellingStatus: sellingStatus,
+            rentingStatus: rentingStatus,
+            holder: holder,
+            publisher: publisher,
+            publishedDate: date,
+            description: description,
+            pages: pages
         })
     })
         .then((response) => {
@@ -57,4 +76,48 @@ const getBook = async (id) => {
         .catch((err) => { console.log('Error: ' + err) });
 }
 
-export { postBook, getBooks, getBook }
+const updateSellingStatus = async (state, id) => {
+    return fetch(`${BASE_LINK}/sell_status`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: id,
+            sellStatus: state,
+        })
+    })
+        .then((response) => {
+            console.dir(response)
+            if (!response.ok) {
+                throw Error(response.statusText)
+            }
+            return response
+        })
+        .catch((err) => { console.log('Error: ' + err) });
+}
+
+const updateSharingStatus = async (state, id) => {
+    return fetch(`${BASE_LINK}/rent_status`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: id,
+            rentStatus: state,
+        })
+    })
+        .then((response) => {
+            console.dir(response)
+            if (!response.ok) {
+                throw Error(response.statusText)
+            }
+            return response
+        })
+        .catch((err) => { console.log('Error: ' + err) });
+}
+
+export { postBook, getBooks, getBook, updateSharingStatus, updateSellingStatus }

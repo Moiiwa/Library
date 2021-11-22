@@ -36,4 +36,5 @@ describe('Input', () => {
         but.simulate('click')
         expect(handleSubmitMock).toHaveBeenCalled()
     });
+
 });
