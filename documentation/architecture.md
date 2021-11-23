@@ -2,7 +2,7 @@
 
 #### Overall architecture
 
-![Overall architecture](Architecture.png)
+<img src="Architecture.png" width="500"/>
 
 #### Code architecture
 
