@@ -15,10 +15,7 @@ jobs:
         python-version: [3.7]
 
     steps:
-      - name: install maven
-        run: sudo apt-get install maven -y
+
       - name: Build with maven
         run: |
           ls
-          cd ./Library-Backend
-          mvn clean install package
