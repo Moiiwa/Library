@@ -1,4 +1,4 @@
-![workflow status](https://github.com/Moiiwa/Devops/actions/workflows/django.yml/badge.svg)
+![workflow status](https://github.com/Moiiwa/Library/actions/workflows/main.yml/badge.svg)
 # library
 
 ## User documentation
