@@ -22,7 +22,7 @@ jobs:
       - name: Build with maven
         run: |
           cd Library-Backend
-          mvn clean install package
+          mvn clean install package -DskipTests
   tests:
     needs: build
     runs-on: ubuntu-18.04
@@ -57,7 +57,7 @@ jobs:
       - name: Build Image
         run: |
             cd Library-Backend
-            mvn clean install package
+            mvn clean install package -DskipTests
             sudo docker build -t moiwa/library_server .
       - name: Deploy Image
         run: |
