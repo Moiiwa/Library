@@ -86,7 +86,6 @@ jobs:
   #     - name: Build Image
   #       run: |
   #           cd front
-  #           mvn clean install package -DskipTests
   #           sudo docker build -t shuvani/lib-front .
   #     - name: Deploy Image
   #       run: |

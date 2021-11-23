@@ -1,5 +1,5 @@
 ![backend workflow status](https://github.com/Moiiwa/Library/actions/workflows/main.yml/badge.svg)
-![frontend workflow status](https://github.com/Moiiwa/Library/actions/workflows/front/badge.svg)
+![frontend workflow status](https://github.com/Moiiwa/Library/actions/workflows/front.yml/badge.svg)
 # Library management app
 
 #### Description
@@ -19,7 +19,7 @@ To check the web site go to http://34.217.9.107:8080
 
 You need to write the book's isbn with numbers and dashes and click find button  
 
-![book input](front/screens/screen_manual_input_book.png)
+<img src="front/screens/screen_manual_input_book.png" width="200"/>
 
 If the format of isbn is correct and such book is found you will get following page
 
