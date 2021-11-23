@@ -38,16 +38,16 @@ class Input extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <input
+                    className="form-control"
                     type='text'
                     placeholder='111-1-1111-1111-1'
                     required={true}
                     value={this.state.isbn}
                     onChange={this.handleChange}
                 />
-                <button onClick={this.handleSubmit}>Find book</button>
-
+                <button className="btn btn-primary" onClick={this.handleSubmit}>Find book</button>
             </div>
         );
     }

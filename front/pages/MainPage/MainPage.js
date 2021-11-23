@@ -2,6 +2,8 @@ import React from 'react'
 import Input from '../../components/Input'
 import List from '../../components/List/List'
 import { getBooks } from '../../api/book'
+
+import './MainPage.css'
 class MainPage extends React.Component {
 
     constructor(props) {
@@ -32,7 +34,7 @@ class MainPage extends React.Component {
                 <Input />
                 {this.state.loading ?
                     <div>Loading...</div> :
-                    <div>
+                    <div className="container">
                         <List list={this.state.booksList} />
                     </div>
                 }

@@ -1,6 +1,8 @@
 import React from 'react'
 import MainPage from '../pages/MainPage/MainPage'
 import BookPage from '../pages/BookPage/BookPage'
+import RegistrationPage from '../pages/RegistrationPage/RegistrationPage'
+
 import {
     Switch,
     Route,
@@ -14,6 +16,7 @@ class App extends React.Component {
                 <Switch>
                     <Route exact path='/' component={MainPage} />
                     <Route path='/book/:id' component={BookPage} />
+                    <Route path='/registration' component={RegistrationPage}/>
                 </Switch>
             </React.Fragment>
         );
