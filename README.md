@@ -1,10 +1,11 @@
-# Library
+![workflow status](https://github.com/Moiiwa/Library/actions/workflows/main.yml/badge.svg)
+# library
 
 ## User documentation
 
 #### Description
 
-This is the Library management application whose goal is to make it easier for users to keep and exchange books
+This is the library management application whose goal is to make it easier for users to keep and exchange books
  
 Features of this web application:
 
@@ -21,7 +22,7 @@ You need to install frontend and backend part to obtain a working project.
 
 Firstly clone this repo
 
-```git clone https://github.com/Moiiwa/Library.git```
+```git clone https://github.com/Moiiwa/library.git```
 
 Frontend is written in React.js
 
@@ -36,7 +37,7 @@ npm npm start
 Backend is written with Spring
 
 ```
-cd Library-Backend 
+cd library-Backend 
 
 mvn clean install packages  
 
@@ -47,7 +48,7 @@ java -jar <JAR_NAME>
 In case you want to run backend in Docker, you have to use the next commands
 
 ```
-cd Library-Backend 
+cd library-Backend 
 
 mvn clean install package -DskipTests 
 
@@ -69,6 +70,8 @@ If the format of isbn is correct and such book is found you will get following p
 By clicking on the book name from the list you will get the book page with detailed information
 
 ![book_input](front/screens/screen_manual_book_page.png)
+
+On this page you can set up the selling and sharing status to allow other user to borrow or buy your book
 
 ## Process organisation
 #### Team
@@ -127,7 +130,7 @@ Task | Small tasks | Acceptance tests | Status |
 Sprint 1 |  |  |  |
 | Add ability to identify book with Isbn | Create the Isbn search field in frontend | Tests coverage at least 80% | Done |
 |  | Connect the scaner with the database of Isbns | It detects 20% of example books |  Done |
-| Create the book card | Save information about the book in db | All CRD operations work | Done |
+| Create the book card | Save information about the book in db | All create/read operations work | Done |
 |  | Display info from db on the book page | Title and Author should be filled | Done |
 
 #### Sprint 2

@@ -68,7 +68,6 @@ class BookPage extends React.Component {
         return (
             <div className="book">
                 <img className={"book-cover"} src={this.noCover} alt={"Book Cover"} />
-
                 {this.state.loading ?
                     <div>Loading...</div> :
                     <div>
