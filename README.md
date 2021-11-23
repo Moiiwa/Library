@@ -35,6 +35,10 @@ On this page you can set up the selling and sharing status to allow other user t
 
 for manual installation check [here](https://github.com/Moiiwa/Library/blob/front_ci/documentation/manual-instalation.md)
 
+## Application architecture
+
+for application architecture check [here](https://github.com/Moiiwa/Library/blob/front_ci/documentation/architecture.md)
+
 ## Process organisation
 
 for process organisation check [here](https://github.com/Moiiwa/Library/blob/front_ci/documentation/process-organisation.md)
