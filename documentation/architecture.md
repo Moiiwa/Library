@@ -2,7 +2,7 @@
 
 #### Overall architecture
 
-![book_input](architecture.png)
+![Overall architecture](Architecture.png)
 
 #### Code architecture
 
