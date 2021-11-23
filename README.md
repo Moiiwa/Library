@@ -33,12 +33,12 @@ On this page you can set up the selling and sharing status to allow other user t
 
 ## Manual installation
 
-for manual installation check [here](https://github.com/Moiiwa/Library/tree/front_ci/documentation/manual_installation.md)
+for manual installation check [here](https://github.com/Moiiwa/Library/blob/front_ci/documentation/manual-instalation.md)
 
 ## Process organisation
 
-for process organisation check [here](https://github.com/Moiiwa/Library/tree/front_ci/documentation/manual_installation.md)
+for process organisation check [here](https://github.com/Moiiwa/Library/blob/front_ci/documentation/process-organisation.md)
 
 ## Product Backlog
 
-for product backlog check [here](https://github.com/Moiiwa/Library/tree/front_ci/documentation/manual_installation.md)
+for product backlog check [here](https://github.com/Moiiwa/Library/blob/front_ci/documentation/product-backlog.md)

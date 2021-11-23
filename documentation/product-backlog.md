@@ -4,13 +4,13 @@
 
 User story number | User story | Task | Status
 | --- | --- | --- | --- |
-[#2](https://github.com/Moiiwa/Library/issues/2) | As a book owner I want to be able to share books | Add to book share status check ability | Done |
+[#2](https://github.com/Moiiwa/Library/issues/2) | As a book owner I want to be able to share books | Add to book share status check ability |  |
 [#3](https://github.com/Moiiwa/Library/issues/3) | As a book owner I want to be able to add new books | Create the book card | Done |
 [#4](https://github.com/Moiiwa/Library/issues/4) | As a book owner I want perform as few steps as possible to add new book | Add ability to identify book with Isbn | Done |
 [#5](https://github.com/Moiiwa/Library/issues/5) | As a client I want to be able to borrow books | Create an ability to notify the owner about the borrow wish | |
 [#6](https://github.com/Moiiwa/Library/issues/6) | As a client I want to be reminded when I should return book to owner | Create an ability to notify the client about the return day | |
 [#7](https://github.com/Moiiwa/Library/issues/7) | As a book owner I want to get feedback about my books from other users | Add an ability to left feedback | |
-[#8](https://github.com/Moiiwa/Library/issues/8) | As a book owner I want to be able to sell books | Add to book sell status check ability | Done |
+[#8](https://github.com/Moiiwa/Library/issues/8) | As a book owner I want to be able to sell books | Add to book sell status check ability |  |
 [#9](https://github.com/Moiiwa/Library/issues/9) | As a user I want to be able to send and approve friend requests | Add users authentification and authorization modules | |
 [#9](https://github.com/Moiiwa/Library/issues/9) | | Add ability to add friends |  |
 
@@ -29,10 +29,12 @@ Sprint 3 |  |
 | | Add users authentification and authorization modules | 
 Sprint 4 |  | 
 | | Create an ability to notify the owner about the borrow wish | 
-| | Create an ability to notify the client about the return day |
-| | Add an ability to left feedback |
+| | Add to book sell status check ability |
+| | Add to book share status check ability |
 Sprint 5 |  | 
+| | Add an ability to left feedback |
 | | Add ability to add friends | 
+| | Create an ability to notify the client about the return day |
 
 #### Sprint 1
 
@@ -55,3 +57,12 @@ Sprint 2 |  |  |  |
 | Add to book sell status check ability | Create put endpoint for book with sell and share status update | sell status changes in bd | Done |
 |  | Create sell check box on the book page | Check box is clickable | Done |
 | Create the CI | Dockerize everything | App starts from docker | Done |
+
+
+#### Sprint 3
+| --- | --- | --- | --- |
+Sprint 2 |  |  |  |
+| Add users authentification and authorization modules | Add users authentification and authorization modules | Backen deffirentiates users and sends the data to frontend | Done |
+|  | Add registration page | name, last name, username and password checks | Done |
+|  | Add login page | username and password checks | Done |
+|  | Create GitHub Actions | build, test and deploy actions | Done |
