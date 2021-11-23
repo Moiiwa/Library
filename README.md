@@ -1,8 +1,6 @@
 ![backend workflow status](https://github.com/Moiiwa/Library/actions/workflows/main.yml/badge.svg)
 ![frontend workflow status](https://github.com/Moiiwa/Library/actions/workflows/front/badge.svg)
-# library
-
-## User documentation
+# Library management app
 
 #### Description
 
@@ -17,57 +15,30 @@ Features of this web application:
 
 #### Web site
 To check the web site go to http://34.217.9.107:8080
-#### Manual installation
+#### User manual
 
-You need to install frontend and backend part to obtain a working project.
+You need to write the book's isbn with numbers and dashes and click find button  
 
-Firstly clone this repo
+![book input](front/screens/screen_manual_input_book.png)
 
-```git clone https://github.com/Moiiwa/library.git```
+If the format of isbn is correct and such book is found you will get following page
 
-Frontend is written in React.js
+![book_input](front/screens/screen_manual_books_list.png)
 
-```
-cd front  
+By clicking on the book name from the list you will get the book page with detailed information
 
-npm install --legacy-peer-deps 
+![book_input](front/screens/screen_manual_book_page.png)
 
-npm npm start  
-```
+On this page you can set up the selling and sharing status to allow other user to borrow or buy your book
 
-Backend is written with Spring
+## Manual installation
 
-```
-cd library-Backend 
-
-mvn clean install packages  
-
-cd target 
-
-java -jar <JAR_NAME> 
-```
-In case you want to run backend in Docker, you have to use the next commands
-
-```
-cd library-Backend 
-
-mvn clean install package -DskipTests 
-
-docker build -t moiwa/library_server .
-
-docker-compose up                     
-```
+for manual installation check [here](https://github.com/Moiiwa/Library/front_ci/documentation/manual_installation.md)
 
 ## Process organisation
-#### Team
-- Daniyar Galimzhanov - frontend
-- Anna Gorb - frontend
-- Mikhail Gudkov - backend
 
-#### Branching policy
-Developer Branch Workflow - all work in progress is in different branches, but then will be merged to main
+for process organisation check [here](https://github.com/Moiiwa/Library/front_ci/documentation/manual_installation.md)
 
-#### Tools
-- Backend - Spring
-- Frontend - React
-- CI - Docker, AWS
+## Product Backlog
+
+for product backlog check [here](https://github.com/Moiiwa/Library/front_ci/documentation/manual_installation.md)
