@@ -47,7 +47,7 @@ class LoginPage extends React.Component {
             <div className="col-md-6 col-md-offset-3 jumbotron">
                 <h1 className="display-4">Login</h1>
 
-                <form name="form" onSubmit={this.handleSubmit}>
+                <form name="form" id="submit" onSubmit={this.handleSubmit}>
 
                     <div className={'form-group' + (submitted && !user.username ? ' has-error' : '')}>
                         <label htmlFor="username">Username</label>

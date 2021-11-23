@@ -1,8 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Input renders correctly 1`] = `
-<div>
+<div
+  className="container"
+>
   <input
+    className="form-control"
     onChange={[Function]}
     placeholder="111-1-1111-1111-1"
     required={true}
@@ -10,6 +13,7 @@ exports[`Input renders correctly 1`] = `
     value=""
   />
   <button
+    className="btn btn-primary"
     onClick={[Function]}
   >
     Find book

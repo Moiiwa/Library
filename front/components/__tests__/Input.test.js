@@ -26,7 +26,6 @@ describe('Input', () => {
     });
 
     it('formatMessage state is true when right isbn', () => {
-
         const wrapper = shallow(<Input />)
         const instance = wrapper.instance()
         const handleSubmitMock = jest.spyOn(instance, 'handleSubmit')
