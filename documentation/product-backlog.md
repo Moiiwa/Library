@@ -60,6 +60,7 @@ Sprint 2 |  |  |  |
 
 
 #### Sprint 3
+Task | Small tasks | Acceptance tests | Status |
 | --- | --- | --- | --- |
 Sprint 2 |  |  |  |
 | Add users authentification and authorization modules | Add users authentification and authorization modules | Backen deffirentiates users and sends the data to frontend | Done |
