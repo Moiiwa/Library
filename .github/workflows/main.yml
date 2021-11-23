@@ -19,5 +19,6 @@ jobs:
         run: sudo apt-get install maven -y
       - name: Build with maven
         run: |
-          cd Library-Backend
+          ls
+          cd ./Library-Backend
           mvn clean install package
