@@ -1,0 +1,23 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.7]
+
+    steps:
+      - name: install maven
+        run: sudo apt-get install maven -y
+      - name: Build with maven
+        run: |
+          cd Library-Backend
+          mvn clean install package
