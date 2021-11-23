@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookPage renders correctly 1`] = `
+<div
+  className="book"
+>
+  <img
+    alt="Book Cover"
+    className="book-cover"
+    src="https://lightning.od-cdn.com/static/img/no-cover_en_US.a8920a302274ea37cfaecb7cf318890e.jpg"
+  />
+  <div>
+    Loading...
+  </div>
+</div>
+`;
