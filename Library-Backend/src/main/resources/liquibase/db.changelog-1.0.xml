@@ -38,4 +38,22 @@
             add pages int;
         </sql>
     </changeSet>
+    <changeSet id="1.0.3" author="moiwa">
+        <sql>
+            create table users
+            (
+            username varchar not null,
+            password varchar not null,
+            first_name varchar,
+            last_name varchar
+            );
+
+            create unique index users_username_uindex
+            on users (username);
+
+            alter table users
+            add constraint users_pk
+            primary key (username);
+        </sql>
+    </changeSet>
 </databaseChangeLog>

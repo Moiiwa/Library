@@ -1,10 +1,10 @@
-# Library
+# library
 
 ## User documentation
 
 #### Description
 
-This is the Library management application whose goal is to make it easier for users to keep and exchange books
+This is the library management application whose goal is to make it easier for users to keep and exchange books
  
 Features of this web application:
 
@@ -21,7 +21,7 @@ You need to install frontend and backend part to obtain a working project.
 
 Firstly clone this repo
 
-```git clone https://github.com/Moiiwa/Library.git```
+```git clone https://github.com/Moiiwa/library.git```
 
 Frontend is written in React.js
 
@@ -36,7 +36,7 @@ npm npm start
 Backend is written with Spring
 
 ```
-cd Library-Backend 
+cd library-Backend 
 
 mvn clean install packages  
 
@@ -47,7 +47,7 @@ java -jar <JAR_NAME>
 In case you want to run backend in Docker, you have to use the next commands
 
 ```
-cd Library-Backend 
+cd library-Backend 
 
 mvn clean install package -DskipTests 
 
