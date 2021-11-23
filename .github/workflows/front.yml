@@ -24,7 +24,9 @@ jobs:
           cd front
           npm install
       - name: Build
-        run: npm run build --if-present
+        run: |
+          cd front
+          npm run build --if-present
 
   tests:
     needs: build
@@ -48,16 +50,22 @@ jobs:
           npm install
 
       - name: Run the tests
-        run: npm test
+        run: |
+          cd front
+          npm test
 
       - name: Generate coverage report
-        run: npm test -- --coverage
+        run: |
+          cd front
+          npm test -- --coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
 
       - name: Build
-        run: npm run build
+        run: |
+          cd front
+          npm run build
 
   # deploy:
   #   needs: tests
