@@ -19,7 +19,7 @@ To check the web site go to http://34.217.9.107:8080
 
 You need to write the book's isbn with numbers and dashes and click find button  
 
-<img src="front/screens/screen_manual_input_book.png" width="200"/>
+<img src="front/screens/screen_manual_input_book.png" width="500"/>
 
 If the format of isbn is correct and such book is found you will get following page
 
@@ -27,18 +27,18 @@ If the format of isbn is correct and such book is found you will get following p
 
 By clicking on the book name from the list you will get the book page with detailed information
 
-![book_input](front/screens/screen_manual_book_page.png)
+<img src="front/screens/screen_manual_book_page.png" width="500"/>
 
 On this page you can set up the selling and sharing status to allow other user to borrow or buy your book
 
 ## Manual installation
 
-for manual installation check [here](https://github.com/Moiiwa/Library/front_ci/documentation/manual_installation.md)
+for manual installation check [here](https://github.com/Moiiwa/Library/tree/front_ci/documentation/manual_installation.md)
 
 ## Process organisation
 
-for process organisation check [here](https://github.com/Moiiwa/Library/front_ci/documentation/manual_installation.md)
+for process organisation check [here](https://github.com/Moiiwa/Library/tree/front_ci/documentation/manual_installation.md)
 
 ## Product Backlog
 
-for product backlog check [here](https://github.com/Moiiwa/Library/front_ci/documentation/manual_installation.md)
+for product backlog check [here](https://github.com/Moiiwa/Library/tree/front_ci/documentation/manual_installation.md)
