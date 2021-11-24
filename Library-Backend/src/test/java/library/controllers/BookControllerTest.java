@@ -69,9 +69,9 @@ public class BookControllerTest{
         book.setTitle("title");
         bookList.add(book);
 
-        when(bookService.getAllBooks()).thenReturn(bookList);
+        when(bookService.getAllBooks("owner")).thenReturn(bookList);
 
-        ResponseEntity<List<Book>> result = subj.getAllBooks();
+        ResponseEntity<List<Book>> result = subj.getAllBooks("owner");
         assertEquals(result.getBody().size(), 1);
         assertEquals(result.getBody().get(0), book);
     }

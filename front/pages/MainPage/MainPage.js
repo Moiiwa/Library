@@ -2,6 +2,7 @@ import React from 'react'
 import Input from '../../components/Input'
 import List from '../../components/List/List'
 import { getBooks } from '../../api/book'
+import { Link } from "react-router-dom";
 
 import './MainPage.css'
 class MainPage extends React.Component {
@@ -15,7 +16,7 @@ class MainPage extends React.Component {
     }
 
     getData = async () => {
-        await getBooks()
+        await getBooks(localStorage.getItem('username'))
             .then(data => {
                 this.setState({
                     loading: false,
@@ -28,17 +29,21 @@ class MainPage extends React.Component {
         this.getData();
     }
 
+    handleLogOut = () => {
+        localStorage.removeItem('username');
+    }
+
     render() {
         return (
             <React.Fragment>
-
-                <Input/>
+                <Input />
                 {this.state.loading ?
                     <div>Loading...</div> :
                     <div className="container list">
                         <List list={this.state.booksList} />
                     </div>
                 }
+                <Link to="/" onClick={this.handleLogOut}>Log out</Link>
             </React.Fragment>
         );
     }

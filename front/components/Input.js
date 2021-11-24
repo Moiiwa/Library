@@ -26,7 +26,7 @@ class Input extends React.Component {
             await postBook(
                 data.authors ? data.authors[0].key : 'no authors',
                 data.title ? data.title : 'no title',
-                'owner',
+                localStorage.getItem('username'),
                 false,
                 false,
                 'holder',

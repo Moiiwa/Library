@@ -15,7 +15,8 @@ class LoginPage extends React.Component {
                 username: '',
                 password: ''
             },
-            submitted: false
+            submitted: false,
+            wrongCredits: false,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -38,6 +39,12 @@ class LoginPage extends React.Component {
         this.setState({ submitted: true });
         if (this.state.user.username && this.state.user.password) {
             const response = await login(this.state.user.username, this.state.user.password)
+            if (response) {
+                localStorage.setItem('username', this.state.user.username);
+                history.push("/main")
+            } else {
+                this.setState({ wrongCredits: true })
+            }
         }
     }
 
@@ -49,7 +56,10 @@ class LoginPage extends React.Component {
             <div className="col-md-6 col-md-offset-3 jumbotron">
                 <h1 className="display-4">Login</h1>
 
-                <Link to={'/login'}>Do not have an account?</Link>
+                {this.state.wrongCredits ?
+                    <p className="text-danger">Credentials are wrong</p>
+                    : null
+                }
 
                 <form name="form" id="submit" onSubmit={this.handleSubmit}>
 

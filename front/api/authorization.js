@@ -27,8 +27,6 @@ const register = async (
                 throw Error(response.statusText)
             }
 
-            history.push("/main")
-
             return response
         })
         .catch((err) => {
@@ -56,8 +54,6 @@ const login = async (
             if (!response.ok) {
                 throw Error(response.statusText)
             }
-
-            history.push("/main")
 
             return response
         })

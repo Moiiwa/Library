@@ -48,6 +48,12 @@ class RegistrationPage extends React.Component {
                 user.firstName,
                 user.lastName
             )
+            if (response) {
+                localStorage.setItem('username', this.state.user.username);
+                history.push("/main")
+            } else {
+                this.setState({ wrongCredits: true })
+            }
         }
     }
 
@@ -60,7 +66,10 @@ class RegistrationPage extends React.Component {
             <div className="col-md-6 col-md-offset-3 jumbotron">
                 <h1 className="display-4">Registration</h1>
 
-                <Link to={'/login'}>Already have an account?</Link>
+                {this.state.wrongCredits ?
+                    <p className="text-danger">Something went wrong</p>
+                    : null
+                }
 
                 <form name="form" id="submit" onSubmit={this.handleSubmit}>
                     <div className={'f' + (submitted && !user.firstName ? ' has-error' : '')}>
