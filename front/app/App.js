@@ -3,23 +3,34 @@ import MainPage from '../pages/MainPage/MainPage'
 import BookPage from '../pages/BookPage/BookPage'
 import RegistrationPage from '../pages/RegistrationPage/RegistrationPage'
 import LoginPage from '../pages/LoginPage/LoginPage'
+import { history } from "../helpers/history";
 
 import {
     Switch,
-    Route,
+    Route, Router,
 } from "react-router-dom";
 
 class App extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        history.listen((location, action) => {
+
+        })
+    }
+
     render() {
         return (
             <React.Fragment>
-                <Switch>
-                    <Route exact path='/' component={MainPage} />
-                    <Route path='/book/:id' component={BookPage} />
-                    <Route path='/login' component={LoginPage} />
-                    <Route path='/registration' component={RegistrationPage} />
-                </Switch>
+                <Router history={history}>
+                    <Switch>
+                        <Route exact path='/main' component={MainPage} />
+                        <Route path='/book/:id' component={BookPage} />
+                        <Route path='/login' component={LoginPage} />
+                        <Route path='/' component={RegistrationPage} />
+                    </Switch>
+                </Router>
             </React.Fragment>
         );
     }

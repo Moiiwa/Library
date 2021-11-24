@@ -87,6 +87,13 @@ exports[`RegistrationPage renders correctly 1`] = `
       >
         Register
       </button>
+      <Link
+        className="btn btn-link"
+        replace={false}
+        to="/login"
+      >
+        Cancel
+      </Link>
     </div>
   </form>
 </div>

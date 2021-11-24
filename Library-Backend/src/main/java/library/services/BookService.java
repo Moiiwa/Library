@@ -25,8 +25,8 @@ public class BookService {
      * Get info about all books
      * @return list of books
      */
-    public List<Book> getAllBooks() {
-        return repository.findAll();
+    public List<Book> getAllBooks(String owner) {
+        return repository.getByOwner(owner);
     }
 
     /**

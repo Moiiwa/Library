@@ -9,6 +9,7 @@ import library.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -47,9 +48,11 @@ public class BookController {
      * @return list of books
      */
     @GetMapping("/get_books")
-    public ResponseEntity<List<Book>> getAllBooks() {
+    public ResponseEntity<List<Book>> getAllBooks(
+      @AuthenticationPrincipal @RequestParam String owner
+    ) {
         ResponseEntity response =
-                new ResponseEntity(bookService.getAllBooks(), HttpStatus.OK);
+                new ResponseEntity(bookService.getAllBooks(owner), HttpStatus.OK);
         return response;
     }
 

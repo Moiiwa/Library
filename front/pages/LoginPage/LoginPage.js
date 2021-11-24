@@ -1,6 +1,10 @@
 import React from 'react'
 
+import { login } from '../../api/authorization'
+
 import './LoginPage.css'
+import { Link } from "react-router-dom";
+import { history } from "../../helpers/history";
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -11,12 +15,12 @@ class LoginPage extends React.Component {
                 username: '',
                 password: ''
             },
-            submitted: false
+            submitted: false,
+            wrongCredits: false,
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-
     }
 
     handleChange(event) {
@@ -30,12 +34,17 @@ class LoginPage extends React.Component {
         });
     }
 
-    handleSubmit(event) {
+    handleSubmit = async (event) => {
         event.preventDefault();
         this.setState({ submitted: true });
         if (this.state.user.username && this.state.user.password) {
-            console.log(this.state.user.username)
-            console.log(this.state.user.password)
+            const response = await login(this.state.user.username, this.state.user.password)
+            if (response) {
+                localStorage.setItem('username', this.state.user.username);
+                history.push("/main")
+            } else {
+                this.setState({ wrongCredits: true })
+            }
         }
     }
 
@@ -47,11 +56,17 @@ class LoginPage extends React.Component {
             <div className="col-md-6 col-md-offset-3 jumbotron">
                 <h1 className="display-4">Login</h1>
 
+                {this.state.wrongCredits ?
+                    <p className="text-danger">Credentials are wrong</p>
+                    : null
+                }
+
                 <form name="form" id="submit" onSubmit={this.handleSubmit}>
 
                     <div className={'form-group' + (submitted && !user.username ? ' has-error' : '')}>
                         <label htmlFor="username">Username</label>
-                        <input type="text" className="form-control" name="username" value={user.username} onChange={this.handleChange} />
+                        <input type="text" className="form-control" name="username" value={user.username}
+                            onChange={this.handleChange} />
                         {submitted && !user.username &&
                             <div className="help-block">Username is required</div>
                         }
@@ -59,7 +74,8 @@ class LoginPage extends React.Component {
 
                     <div className={'form-group' + (submitted && !user.password ? ' has-error' : '')}>
                         <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" name="password" value={user.password} onChange={this.handleChange} />
+                        <input type="password" className="form-control" name="password" value={user.password}
+                            onChange={this.handleChange} />
                         {submitted && !user.password &&
                             <div className="help-block">Password is required</div>
                         }
@@ -67,6 +83,7 @@ class LoginPage extends React.Component {
 
                     <div className="form-group">
                         <button className="btn btn-primary">Log In</button>
+                        <Link className="btn btn-link" to={"/registration"}>Register</Link>
                     </div>
                 </form>
 

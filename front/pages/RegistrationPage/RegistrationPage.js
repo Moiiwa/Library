@@ -1,6 +1,10 @@
 import React from 'react'
 
+import { register } from '../../api/authorization'
+
 import './RegistrationPage.css'
+import { Link } from "react-router-dom";
+import { history } from "../../helpers/history";
 
 class RegistrationPage extends React.Component {
     constructor(props) {
@@ -32,13 +36,24 @@ class RegistrationPage extends React.Component {
         });
     }
 
-    handleSubmit(event) {
+    handleSubmit = async (event) => {
         event.preventDefault();
 
         this.setState({ submitted: true });
         const { user } = this.state;
         if (user.firstName && user.lastName && user.username && user.password) {
-
+            const response = await register(
+                user.username,
+                user.password,
+                user.firstName,
+                user.lastName
+            )
+            if (response) {
+                localStorage.setItem('username', this.state.user.username);
+                history.push("/main")
+            } else {
+                this.setState({ wrongCredits: true })
+            }
         }
     }
 
@@ -50,6 +65,11 @@ class RegistrationPage extends React.Component {
         return (
             <div className="col-md-6 col-md-offset-3 jumbotron">
                 <h1 className="display-4">Registration</h1>
+
+                {this.state.wrongCredits ?
+                    <p className="text-danger">Something went wrong</p>
+                    : null
+                }
 
                 <form name="form" id="submit" onSubmit={this.handleSubmit}>
                     <div className={'f' + (submitted && !user.firstName ? ' has-error' : '')}>
@@ -86,6 +106,7 @@ class RegistrationPage extends React.Component {
 
                     <div className="form-group">
                         <button className="btn btn-primary">Register</button>
+                        <Link className="btn btn-link" to={"/login"}>Cancel</Link>
                     </div>
                 </form>
 

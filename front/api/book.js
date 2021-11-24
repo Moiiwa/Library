@@ -36,13 +36,16 @@ const postBook = async (
             if (!response.ok) {
                 throw Error(response.statusText)
             }
+
+            window.location.reload();
+
             return response
         })
         .catch((err) => { console.log('Error: ' + err) });
 }
 
-const getBooks = async () => {
-    return fetch(`${BASE_LINK}/get_books`, {
+const getBooks = async (owner) => {
+    return fetch(`${BASE_LINK}/get_books?owner=${owner}`, {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
