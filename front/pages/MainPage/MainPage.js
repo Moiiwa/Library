@@ -31,10 +31,11 @@ class MainPage extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Input />
+
+                <Input/>
                 {this.state.loading ?
                     <div>Loading...</div> :
-                    <div className="container">
+                    <div className="container list">
                         <List list={this.state.booksList} />
                     </div>
                 }

@@ -1,6 +1,10 @@
 import React from 'react'
 
+import {register} from '../../api/authorization'
+
 import './RegistrationPage.css'
+import {Link} from "react-router-dom";
+import {history} from "../../helpers/history";
 
 class RegistrationPage extends React.Component {
     constructor(props) {
@@ -32,13 +36,18 @@ class RegistrationPage extends React.Component {
         });
     }
 
-    handleSubmit(event) {
+    handleSubmit = async (event) => {
         event.preventDefault();
 
         this.setState({ submitted: true });
         const { user } = this.state;
         if (user.firstName && user.lastName && user.username && user.password) {
-
+            const response = await register (
+                user.username,
+                user.password,
+                user.firstName,
+                user.lastName
+            )
         }
     }
 
@@ -86,6 +95,7 @@ class RegistrationPage extends React.Component {
 
                     <div className="form-group">
                         <button className="btn btn-primary">Register</button>
+                        <Link className="btn btn-link" to={"/login"}>Cancel</Link>
                     </div>
                 </form>
 

@@ -36,6 +36,9 @@ const postBook = async (
             if (!response.ok) {
                 throw Error(response.statusText)
             }
+
+            window.location.reload();
+
             return response
         })
         .catch((err) => { console.log('Error: ' + err) });

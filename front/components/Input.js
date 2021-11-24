@@ -2,6 +2,8 @@ import React from 'react'
 import { getBookWithIsbn } from '../api/isbn'
 import { postBook, getBooks } from '../api/book'
 
+import './Input.css'
+
 class Input extends React.Component {
 
     constructor(props) {
@@ -47,7 +49,7 @@ class Input extends React.Component {
                     value={this.state.isbn}
                     onChange={this.handleChange}
                 />
-                <button className="btn btn-primary" onClick={this.handleSubmit}>Find book</button>
+                <button className="btn btn-primary btn-space" onClick={this.handleSubmit}>Find book</button>
             </div>
         );
     }
