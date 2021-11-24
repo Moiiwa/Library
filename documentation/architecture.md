@@ -15,11 +15,11 @@
 - pages:__tests__: tests for pages
 
 *Library-Backend/src/main/java*
-- controllers: 
-- dto:
-- entities:
-- repositories:
-- services:
+- controllers: composition of endpoints
+- dto: base objects for endpoints
+- entities: entities in the db
+- repositories: layer between the db and backend
+- services: helper functions
 
 *Library-Backend/src/test*
 - BookControllerTest: tests for all apis
