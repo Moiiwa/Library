@@ -1,4 +1,4 @@
-import {history} from "../helpers/history";
+import { history } from "../helpers/history";
 
 const BASE_LINK = "http://localhost:8000"
 
@@ -27,7 +27,7 @@ const register = async (
                 throw Error(response.statusText)
             }
 
-            history.push("/")
+            history.push("/main")
 
             return response
         })
@@ -57,7 +57,7 @@ const login = async (
                 throw Error(response.statusText)
             }
 
-            history.push("/")
+            history.push("/main")
 
             return response
         })
@@ -66,4 +66,4 @@ const login = async (
         });
 }
 
-export {register, login}
+export { register, login }

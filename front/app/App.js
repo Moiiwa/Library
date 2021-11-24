@@ -3,7 +3,7 @@ import MainPage from '../pages/MainPage/MainPage'
 import BookPage from '../pages/BookPage/BookPage'
 import RegistrationPage from '../pages/RegistrationPage/RegistrationPage'
 import LoginPage from '../pages/LoginPage/LoginPage'
-import {history} from "../helpers/history";
+import { history } from "../helpers/history";
 
 import {
     Switch,
@@ -25,10 +25,10 @@ class App extends React.Component {
             <React.Fragment>
                 <Router history={history}>
                     <Switch>
-                        <Route exact path='/' component={MainPage}/>
-                        <Route path='/book/:id' component={BookPage}/>
-                        <Route path='/login' component={LoginPage}/>
-                        <Route path='/registration' component={RegistrationPage}/>
+                        <Route exact path='/main' component={MainPage} />
+                        <Route path='/book/:id' component={BookPage} />
+                        <Route path='/login' component={LoginPage} />
+                        <Route path='/' component={RegistrationPage} />
                     </Switch>
                 </Router>
             </React.Fragment>

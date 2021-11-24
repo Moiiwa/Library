@@ -1,10 +1,10 @@
 import React from 'react'
 
-import {register} from '../../api/authorization'
+import { register } from '../../api/authorization'
 
 import './RegistrationPage.css'
-import {Link} from "react-router-dom";
-import {history} from "../../helpers/history";
+import { Link } from "react-router-dom";
+import { history } from "../../helpers/history";
 
 class RegistrationPage extends React.Component {
     constructor(props) {
@@ -42,7 +42,7 @@ class RegistrationPage extends React.Component {
         this.setState({ submitted: true });
         const { user } = this.state;
         if (user.firstName && user.lastName && user.username && user.password) {
-            const response = await register (
+            const response = await register(
                 user.username,
                 user.password,
                 user.firstName,
@@ -59,6 +59,8 @@ class RegistrationPage extends React.Component {
         return (
             <div className="col-md-6 col-md-offset-3 jumbotron">
                 <h1 className="display-4">Registration</h1>
+
+                <Link to={'/login'}>Already have an account?</Link>
 
                 <form name="form" id="submit" onSubmit={this.handleSubmit}>
                     <div className={'f' + (submitted && !user.firstName ? ' has-error' : '')}>
