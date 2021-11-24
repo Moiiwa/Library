@@ -54,6 +54,13 @@ exports[`LoginPage renders correctly 1`] = `
       >
         Log In
       </button>
+      <Link
+        className="btn btn-link"
+        replace={false}
+        to="/registration"
+      >
+        Register
+      </Link>
     </div>
   </form>
 </div>

@@ -33,6 +33,7 @@ describe('LoginPage', () => {
                 password: "",
             },
             "submitted": false,
+            "wrongCredits": false
         };
 
         wrapper.instance().handleChange(mockEvent);
