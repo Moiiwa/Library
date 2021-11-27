@@ -115,4 +115,42 @@ public class BookController {
     return new ResponseEntity("Done", HttpStatus.OK);
   }
 
+    /**
+     * Get all sellable books
+     * @return list of sellable books
+     */
+    @GetMapping("/all_sellable_books")
+    public ResponseEntity getAllSellableBooks() {
+        return new ResponseEntity(bookService.getAllSellableBooks(), HttpStatus.OK);
+    }
+
+    /**
+     * Get all books available for rent
+     * @return list of rentable books
+     */
+    @GetMapping("/all_rentable_books")
+    public ResponseEntity getAllRentableBooks() {
+        return new ResponseEntity(bookService.getAllRentableBooks(), HttpStatus.OK);
+    }
+
+    /**
+     * Get all sellable books of user
+     * @param username owner
+     * @return list of sellable books of user
+     */
+    @GetMapping("/all_sellable_books_of")
+    public ResponseEntity getAllSellableBooksOfUser(@RequestParam String username) {
+        return new ResponseEntity(bookService.getAllSellableBooksOfUser(username), HttpStatus.OK);
+    }
+
+    /**
+     * Get all rentable books of user
+     * @param username owner
+     * @return list of rentable books of user
+     */
+    @GetMapping("/all_rentable_books_of")
+    public ResponseEntity getAllRentableBooksOfUser(@RequestParam String username) {
+        return new ResponseEntity(bookService.getAllRentableBooksOfUser(username), HttpStatus.OK);
+    }
+
 }
