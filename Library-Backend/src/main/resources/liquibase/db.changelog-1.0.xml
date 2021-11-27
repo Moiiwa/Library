@@ -56,4 +56,9 @@
             primary key (username);
         </sql>
     </changeSet>
+    <changeSet id="1.0.4" author="moiwa">
+        <sql>
+            alter table books alter column selling_status type boolean using selling_status::boolean;
+        </sql>
+    </changeSet>
 </databaseChangeLog>

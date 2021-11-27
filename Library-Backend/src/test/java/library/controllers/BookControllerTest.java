@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertNotEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
@@ -192,5 +193,143 @@ public class BookControllerTest{
     ResponseEntity result = subj.changeSellStatus(changeSellStatusDto);
     assertEquals(result.getBody(),"Done");
   }
+
+  @Test
+  public void testGetAllSellableBooks() {
+      Book book1 = new Book();
+      book1.setAuthor("moiwa");
+      book1.setDescription("description");
+      book1.setHolder("holder");
+      book1.setOwner("owner");
+      book1.setPages(3);
+      book1.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
+      book1.setPublisher("publisher");
+      book1.setSellingStatus(true);
+      book1.setRentingStatus(false);
+      book1.setTitle("title");
+      book1.setId(1337l);
+      Book book2 = new Book();
+      book2.setAuthor("moiwa");
+      book2.setDescription("description");
+      book2.setHolder("holder");
+      book2.setOwner("owner");
+      book2.setPages(3);
+      book2.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
+      book2.setPublisher("publisher");
+      book2.setSellingStatus(true);
+      book2.setRentingStatus(false);
+      book2.setTitle("title");
+      book2.setId(1337l);
+      List<Book> books = new ArrayList<>();
+      books.add(book1);
+      books.add(book2);
+
+      when(bookService.getAllSellableBooks()).thenReturn(books);
+      ResponseEntity result = subj.getAllSellableBooks();
+      assertEquals(result.getBody(),books);
+  }
+
+    @Test
+    public void testGetAllRentableBooks() {
+        Book book1 = new Book();
+        book1.setAuthor("moiwa");
+        book1.setDescription("description");
+        book1.setHolder("holder");
+        book1.setOwner("owner");
+        book1.setPages(3);
+        book1.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
+        book1.setPublisher("publisher");
+        book1.setSellingStatus(true);
+        book1.setRentingStatus(true);
+        book1.setTitle("title");
+        book1.setId(1337l);
+        Book book2 = new Book();
+        book2.setAuthor("moiwa");
+        book2.setDescription("description");
+        book2.setHolder("holder");
+        book2.setOwner("owner");
+        book2.setPages(3);
+        book2.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
+        book2.setPublisher("publisher");
+        book2.setSellingStatus(true);
+        book2.setRentingStatus(false);
+        book2.setTitle("title");
+        book2.setId(1337l);
+        List<Book> books = new ArrayList<>();
+        books.add(book1);
+
+        when(bookService.getAllRentableBooks()).thenReturn(books);
+        ResponseEntity result = subj.getAllRentableBooks();
+        assertEquals(result.getBody(),books);
+    }
+
+    @Test
+    public void testGetAllRentableBooksOf() {
+        Book book1 = new Book();
+        book1.setAuthor("moiwa");
+        book1.setDescription("description");
+        book1.setHolder("holder");
+        book1.setOwner("owner");
+        book1.setPages(3);
+        book1.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
+        book1.setPublisher("publisher");
+        book1.setSellingStatus(true);
+        book1.setRentingStatus(true);
+        book1.setTitle("title");
+        book1.setId(1337l);
+        Book book2 = new Book();
+        book2.setAuthor("moiwa");
+        book2.setDescription("description");
+        book2.setHolder("holder");
+        book2.setOwner("owner");
+        book2.setPages(3);
+        book2.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
+        book2.setPublisher("publisher");
+        book2.setSellingStatus(true);
+        book2.setRentingStatus(false);
+        book2.setTitle("title");
+        book2.setId(1337l);
+        List<Book> books = new ArrayList<>();
+        books.add(book1);
+
+        when(bookService.getAllRentableBooksOfUser("owner")).thenReturn(books);
+        ResponseEntity result = subj.getAllRentableBooksOfUser("owner");
+        assertEquals(result.getBody(),books);
+    }
+
+    @Test
+    public void testGetAllSellableBooksOf() {
+        Book book1 = new Book();
+        book1.setAuthor("moiwa");
+        book1.setDescription("description");
+        book1.setHolder("holder");
+        book1.setOwner("owner");
+        book1.setPages(3);
+        book1.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
+        book1.setPublisher("publisher");
+        book1.setSellingStatus(true);
+        book1.setRentingStatus(true);
+        book1.setTitle("title");
+        book1.setId(1337l);
+        Book book2 = new Book();
+        book2.setAuthor("moiwa");
+        book2.setDescription("description");
+        book2.setHolder("holder");
+        book2.setOwner("owner");
+        book2.setPages(3);
+        book2.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
+        book2.setPublisher("publisher");
+        book2.setSellingStatus(true);
+        book2.setRentingStatus(false);
+        book2.setTitle("title");
+        book2.setId(1337l);
+        List<Book> books = new ArrayList<>();
+        books.add(book1);
+        books.add(book2);
+
+        when(bookService.getAllSellableBooksOfUser("owner")).thenReturn(books);
+        ResponseEntity result = subj.getAllSellableBooksOfUser("owner");
+        assertEquals(result.getBody(),books);
+    }
 
 }

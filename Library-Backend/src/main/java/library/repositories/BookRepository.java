@@ -12,4 +12,12 @@ public interface BookRepository extends JpaRepository<Book, Long>{
 
     public Book getById(Long id);
 
+    public List<Book> getAllBySellingStatus(boolean status);
+
+    public List<Book> getAllByRentingStatus(boolean status);
+
+    public List<Book> getAllBySellingStatusAndOwner(boolean status, String owner);
+
+    public List<Book> getAllByRentingStatusAndOwner(boolean status, String owner);
+
 }

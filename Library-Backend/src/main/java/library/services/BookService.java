@@ -38,4 +38,20 @@ public class BookService {
       return repository.getById(id);
     }
 
+    public List<Book> getAllSellableBooks(){
+        return repository.getAllBySellingStatus(true);
+    }
+
+    public List<Book> getAllRentableBooks(){
+        return repository.getAllByRentingStatus(true);
+    }
+
+    public List<Book> getAllSellableBooksOfUser(String owner){
+        return repository.getAllBySellingStatusAndOwner(true, owner);
+    }
+
+    public List<Book> getAllRentableBooksOfUser(String owner){
+        return repository.getAllByRentingStatusAndOwner(true, owner);
+    }
+
 }
