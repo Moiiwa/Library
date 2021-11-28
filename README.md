@@ -45,7 +45,7 @@ By clicking on the book name from the list you will get the book page with detai
 
 <img src="front/screens/screen_manual_book_page.png" width="500"/>
 
-On this page you can set up the selling and sharing status to allow other user to borrow or buy your book.
+On this page you can set up the selling and sharing status to allow other user to borrow or buy your book. Also you can use the same checkboxes from the main page.
 
 To log out from the app click log out button on the main page
 
