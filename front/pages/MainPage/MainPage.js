@@ -36,11 +36,12 @@ class MainPage extends React.Component {
     render() {
         return (
             <React.Fragment>
+                <h1 className="text-center">Library management application</h1>
                 <Input />
                 {this.state.loading ?
                     <div>Loading...</div> :
                     <div className="container list">
-                        <List list={this.state.booksList} />
+                        <List books={this.state.booksList} />
                     </div>
                 }
                 <Link to="/" onClick={this.handleLogOut}>Log out</Link>

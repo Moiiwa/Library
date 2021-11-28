@@ -16,14 +16,6 @@ describe('BookPage', () => {
         }
     }
 
-    let mockSellingStatus;
-    let mockRentingStatus;
-
-    beforeEach(() => {
-        mockSellingStatus = jest.fn();
-        mockRentingStatus = jest.fn()
-    });
-
     it('componentDidMount() works', () => {
         const wrapper = shallow(<BookPage {...props} />);
         const instance = wrapper.instance();

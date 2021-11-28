@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 const BASE_LINK = 'http://localhost:8000'
 
 const postBook = async (

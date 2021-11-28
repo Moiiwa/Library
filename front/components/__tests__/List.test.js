@@ -8,6 +8,15 @@ import List from '../List/List';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('List', () => {
+
+    let mockSellingStatus;
+    let mockRentingStatus;
+
+    beforeEach(() => {
+        mockSellingStatus = jest.fn();
+        mockRentingStatus = jest.fn()
+    });
+
     it('renders correctly with props', () => {
         const props = {
             list: [{ id: 1, title: "title", author: "author", owner: "owner" }]
@@ -20,7 +29,49 @@ describe('List', () => {
         const props = {
             list: null
         }
-        const wrapper = shallow(<List {...props} />).find('#list');
+        const wrapper = shallow(<List {...props} />).find('.table');
         expect(wrapper).toEqual({});
+    });
+
+    it('update selling status', () => {
+        const wrapper = shallow(<List />);
+        wrapper.setState({
+            books: [{
+                id: 2,
+                title: "Cell",
+                author: "/authors/OL2162284A",
+                owner: "anna",
+                sellingStatus: false
+            }]
+        });
+        const instance = wrapper.instance()
+        const changeSellingStatusMock = jest.spyOn(instance, 'changeSellingStatus')
+        instance.forceUpdate();
+
+        const checkbox = wrapper.find('#sell')
+        console.debug(checkbox)
+        checkbox.simulate('change', { target: { checked: true } });
+        expect(changeSellingStatusMock).toHaveBeenCalled()
+    });
+
+    it('update sharing status', () => {
+        const wrapper = shallow(<List />);
+        wrapper.setState({
+            books: [{
+                id: 2,
+                title: "Cell",
+                author: "/authors/OL2162284A",
+                owner: "anna",
+                rentingStatus: false
+            }]
+        });
+        const instance = wrapper.instance()
+        const changeSharingStatusMock = jest.spyOn(instance, 'changeSharingStatus')
+        instance.forceUpdate();
+
+        const checkbox = wrapper.find('#share')
+        console.debug(checkbox)
+        checkbox.simulate('change', { target: { checked: true } });
+        expect(changeSharingStatusMock).toHaveBeenCalled()
     });
 });
