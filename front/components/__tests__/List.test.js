@@ -9,14 +9,6 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('List', () => {
 
-    let mockSellingStatus;
-    let mockRentingStatus;
-
-    beforeEach(() => {
-        mockSellingStatus = jest.fn();
-        mockRentingStatus = jest.fn()
-    });
-
     it('renders correctly with props', () => {
         const props = {
             list: [{ id: 1, title: "title", author: "author", owner: "owner" }]

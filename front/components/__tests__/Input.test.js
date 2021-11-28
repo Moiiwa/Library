@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from '../Input';
+import Input from '../Input/Input';
 import toJson from 'enzyme-to-json';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';

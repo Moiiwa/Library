@@ -3,6 +3,8 @@ import MainPage from '../pages/MainPage/MainPage'
 import BookPage from '../pages/BookPage/BookPage'
 import RegistrationPage from '../pages/RegistrationPage/RegistrationPage'
 import LoginPage from '../pages/LoginPage/LoginPage'
+import BuyBookPage from '../pages/BuyBookPage/BuyBookPage'
+import RentBookPage from '../pages/RentBookPage/RentBookPage'
 import { history } from "../helpers/history";
 
 import {
@@ -14,10 +16,6 @@ class App extends React.Component {
 
     constructor(props) {
         super(props);
-
-        history.listen((location, action) => {
-
-        })
     }
 
     render() {
@@ -26,6 +24,8 @@ class App extends React.Component {
                 <Router history={history}>
                     <Switch>
                         <Route exact path='/main' component={MainPage} />
+                        <Route path='/buy' component={BuyBookPage} />
+                        <Route path='/rent' component={RentBookPage} />
                         <Route path='/book/:id' component={BookPage} />
                         <Route path='/login' component={LoginPage} />
                         <Route path='/' component={RegistrationPage} />

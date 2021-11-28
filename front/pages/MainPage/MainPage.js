@@ -1,5 +1,5 @@
 import React from 'react'
-import Input from '../../components/Input'
+import Input from '../../components/Input/Input'
 import List from '../../components/List/List'
 import { getBooks } from '../../api/book'
 import { Link } from "react-router-dom";
@@ -37,6 +37,18 @@ class MainPage extends React.Component {
         return (
             <React.Fragment>
                 <h1 className="text-center">Library management application</h1>
+                <div className="text-center button-wrapper">
+                    <Link to="/buy">
+                        <button type="button" class="btn btn-primary m-right">
+                            Buy book
+                        </button>
+                    </Link>
+                    <Link to="/rent">
+                        <button type="button" class="btn btn-primary">
+                            Rent book
+                        </button>
+                    </Link>
+                </div>
                 <Input />
                 {this.state.loading ?
                     <div>Loading...</div> :

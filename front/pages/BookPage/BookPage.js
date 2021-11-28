@@ -32,36 +32,22 @@ class BookPage extends React.Component {
 
     changeSellingStatus = async () => {
         let data = this.state.bookData
-        if (data.sellingStatus) {
-            await updateSellingStatus(false, this.state.id)
-            data.sellingStatus = false
-            this.setState({
-                bookData: data
-            });
-        } else {
-            await updateSellingStatus(true, this.state.id)
-            data.sellingStatus = true
-            this.setState({
-                bookData: data
-            });
-        }
+        let oppStatus = !data.sellingStatus
+        await updateSellingStatus(oppStatus, this.state.id)
+        data.sellingStatus = oppStatus
+        this.setState({
+            bookData: data
+        });
     }
 
     changeSharingStatus = async () => {
         let data = this.state.bookData
-        if (data.rentingStatus) {
-            await updateSharingStatus(false, this.state.id)
-            data.rentingStatus = false
-            this.setState({
-                bookData: data
-            });
-        } else {
-            await updateSharingStatus(true, this.state.id)
-            data.rentingStatus = true
-            this.setState({
-                bookData: data
-            });
-        }
+        let oppStatus = !data.rentingStatus
+        await updateSharingStatus(oppStatus, this.state.id)
+        data.rentingStatus = oppStatus
+        this.setState({
+            bookData: data
+        });
     }
 
     render() {

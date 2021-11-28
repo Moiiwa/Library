@@ -1,9 +1,6 @@
 package library.controllers;
 
-import library.dto.AddBookDto;
-import library.dto.ChangeRentStatusDto;
-import library.dto.ChangeSellStatusDto;
-import library.dto.SellRentBookDto;
+import library.dto.*;
 import library.entities.Book;
 import library.services.BookService;
 import org.junit.Test;
@@ -331,5 +328,31 @@ public class BookControllerTest{
         ResponseEntity result = subj.getAllSellableBooksOfUser("owner");
         assertEquals(result.getBody(),books);
     }
+
+  @Test
+  public void buyBook() {
+    Book book = new Book();
+    book.setAuthor("author");
+    book.setDescription("description");
+    book.setHolder("moiwa");
+    book.setOwner("moiwa");
+    book.setPages(3);
+    book.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
+    book.setPublisher("publisher");
+    book.setSellingStatus(true);
+    book.setRentingStatus(false);
+    book.setTitle("title");
+    book.setId(1337l);
+
+    BuyBookDto buyBookDto = new BuyBookDto();
+    buyBookDto.setId(1337l);
+    buyBookDto.setSellingStatus(false);
+    buyBookDto.setHolder("nemoiwa");
+    buyBookDto.setOwner("nemoiwa");
+    doNothing().when(bookService).addBook(book);
+    when(bookService.getBookById(book.getId())).thenReturn(book);
+    ResponseEntity result = subj.buyBook(buyBookDto);
+    assertEquals(result.getBody(),"Done");
+  }
 
 }

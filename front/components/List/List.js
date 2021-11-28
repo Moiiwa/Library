@@ -12,30 +12,21 @@ class List extends React.Component {
 
     componentWillMount() {
         this.setState({ books: this.props.books })
-        console.log(this.props.books)
     }
 
     changeSellingStatus = async (index, id) => {
         let data = this.state.books
-        if (data[index].sellingStatus) {
-            await updateSellingStatus(false, id)
-            data[index].sellingStatus = false
-        } else {
-            await updateSellingStatus(true, id)
-            data[index].sellingStatus = true
-        }
+        let oppStatus = !data[index].sellingStatus
+        await updateSellingStatus(oppStatus, id)
+        data[index].sellingStatus = oppStatus
         this.setState({ books: data })
     }
 
     changeSharingStatus = async (index, id) => {
         let data = this.state.books
-        if (data[index].rentingStatus) {
-            await updateSharingStatus(false, id)
-            data[index].rentingStatus = false
-        } else {
-            await updateSharingStatus(true, id)
-            data[index].rentingStatus = true
-        }
+        let oppStatus = !data[index].rentingStatus
+        await updateSharingStatus(oppStatus, id)
+        data[index].rentingStatus = oppStatus
         this.setState({ books: data })
     }
 

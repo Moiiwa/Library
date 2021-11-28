@@ -25,7 +25,7 @@ In case of empty field you will have an error notification.
 
 <img src="front/screens/reg_error.png" width="500"/>
 
-If you already have an account, you can switch to login page by clicking on Cancel button at the bottom of the registration page.
+If you already have an account, you can switch to login page by clicking on "Cancel" button at the bottom of the registration page.
 
 <img src="front/screens/login.png" width="500"/>
 
@@ -45,9 +45,15 @@ By clicking on the book name from the list you will get the book page with detai
 
 <img src="front/screens/screen_manual_book_page.png" width="500"/>
 
-On this page you can set up the selling and sharing status to allow other user to borrow or buy your book. Also you can use the same checkboxes from the main page.
+On this page you can set up the selling and sharing status to allow other user to borrow or buy your book. Also you can use the same checkboxes from the main page - in the same row with the book title.
 
-To log out from the app click log out button on the main page
+Also you can see "buy book" button on the main page. By clicking on it you will see the page with all books available for buying.
+
+<img src="front/screens/buy_book.png" width="500"/>
+
+If you will click on the "Buy book" button here - this book will disappear from the list of available for sale and will appear in the list of your own books on the main page.
+
+To log out from the app click "log out" button on the main page
 
 ## Manual installation
 

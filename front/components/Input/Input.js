@@ -1,6 +1,6 @@
 import React from 'react'
-import { getBookWithIsbn } from '../api/isbn'
-import { postBook, getBooks } from '../api/book'
+import { getBookWithIsbn } from '../../api/isbn'
+import { postBook, getBooks } from '../../api/book'
 
 import './Input.css'
 
@@ -29,7 +29,7 @@ class Input extends React.Component {
                 localStorage.getItem('username'),
                 false,
                 false,
-                'holder',
+                localStorage.getItem('username'),
                 data.publishers ? data.publishers[0] : 'no publishers',
                 new Date('December 17, 1995 03:24:00'),
                 data.description ? data.description.value : 'no description',
