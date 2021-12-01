@@ -53,6 +53,22 @@ Also you can see "buy book" button on the main page. By clicking on it you will 
 
 If you will click on the "Buy book" button here - this book will disappear from the list of available for sale and will appear in the list of your own books on the main page.
 
+Also there is a "Rent book" page near to the "Buy book" button. By clicking on it you will see all books, awailable for renting.
+
+<img src="front/screens/rent_book.png" width="500"/>
+
+After you will chose some books from this list, it will appear in the list of your rented books on the main page:
+
+<img src="front/screens/rented_by_user_book.png" width="500"/>
+
+By clicking on the "Return book" you will return the book to the owner and it will disappear from your rented books list.
+
+Also, on the main page, there is the last list of books - list of your books which are in use by other people.
+
+<img src="front/screens/rented_by_other_book.png" width="500"/>
+
+You can click on the "Ask to return" button to return your book.
+
 To log out from the app click "log out" button on the main page
 
 ## Manual installation

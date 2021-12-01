@@ -42,7 +42,6 @@ public class BookService {
      */
     public List<Book> getAllRentableBooksOfUser(String owner){
       List<Book> list = repository.getAllByOwner(owner);
-      System.out.println(list);
       List<Book> filteredList = list.stream()
                                     .filter((Book book) -> {
                                       return !book.getOwner().equals(book.getHolder());

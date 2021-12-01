@@ -75,6 +75,41 @@ public class BookControllerTest{
     }
 
     @Test
+    public void testGetAllRentedBooksOfUser() {
+      Book book1 = new Book();
+      book1.setAuthor("moiwa");
+      book1.setDescription("description");
+      book1.setHolder("holder");
+      book1.setOwner("owner");
+      book1.setPages(3);
+      book1.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
+      book1.setPublisher("publisher");
+      book1.setSellingStatus(true);
+      book1.setRentingStatus(false);
+      book1.setTitle("title");
+      book1.setId(1337l);
+      Book book2 = new Book();
+      book2.setAuthor("moiwa");
+      book2.setDescription("description");
+      book2.setHolder("holder");
+      book2.setOwner("owner");
+      book2.setPages(3);
+      book2.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
+      book2.setPublisher("publisher");
+      book2.setSellingStatus(true);
+      book2.setRentingStatus(false);
+      book2.setTitle("title");
+      book2.setId(1337l);
+      List<Book> books = new ArrayList<>();
+      books.add(book1);
+      books.add(book2);
+
+      when(bookService.getAllRentedBooksOfUser("owner")).thenReturn(books);
+      ResponseEntity result = subj.getAllRentedBooksOfUser("owner");
+      assertEquals(result.getBody(),books);
+    }
+
+    @Test
     public void testGetBook() {
         Book book = new Book();
         book.setAuthor("moiwa");
@@ -139,6 +174,30 @@ public class BookControllerTest{
     doNothing().when(bookService).addBook(book);
     when(bookService.getBookById(book.getId())).thenReturn(book);
     ResponseEntity result = subj.changeSellStatus(changeSellStatusDto);
+    assertEquals(result.getBody(),"Done");
+  }
+
+  @Test
+  public void testChangeHolder() {
+    Book book = new Book();
+    book.setAuthor("moiwa");
+    book.setDescription("description");
+    book.setHolder("holder");
+    book.setOwner("owner");
+    book.setPages(3);
+    book.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
+    book.setPublisher("publisher");
+    book.setSellingStatus(false);
+    book.setRentingStatus(false);
+    book.setTitle("title");
+    book.setId(1337l);
+
+    ChangeHolderDto changeHolderDto = new ChangeHolderDto();
+    changeHolderDto.setId(1337l);
+    changeHolderDto.setHolder("owner");
+    doNothing().when(bookService).addBook(book);
+    when(bookService.getBookById(book.getId())).thenReturn(book);
+    ResponseEntity result = subj.changeHolder(changeHolderDto);
     assertEquals(result.getBody(),"Done");
   }
 
@@ -208,40 +267,6 @@ public class BookControllerTest{
 
         when(bookService.getAllRentableBooks()).thenReturn(books);
         ResponseEntity result = subj.getAllRentableBooks();
-        assertEquals(result.getBody(),books);
-    }
-
-    @Test
-    public void testGetAllRentableBooksOf() {
-        Book book1 = new Book();
-        book1.setAuthor("moiwa");
-        book1.setDescription("description");
-        book1.setHolder("holder");
-        book1.setOwner("owner");
-        book1.setPages(3);
-        book1.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
-        book1.setPublisher("publisher");
-        book1.setSellingStatus(true);
-        book1.setRentingStatus(true);
-        book1.setTitle("title");
-        book1.setId(1337l);
-        Book book2 = new Book();
-        book2.setAuthor("moiwa");
-        book2.setDescription("description");
-        book2.setHolder("holder");
-        book2.setOwner("owner");
-        book2.setPages(3);
-        book2.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
-        book2.setPublisher("publisher");
-        book2.setSellingStatus(true);
-        book2.setRentingStatus(false);
-        book2.setTitle("title");
-        book2.setId(1337l);
-        List<Book> books = new ArrayList<>();
-        books.add(book1);
-
-        when(bookService.getAllRentableBooksOfUser("owner")).thenReturn(books);
-        ResponseEntity result = subj.getAllRentableBooksOfUser("owner");
         assertEquals(result.getBody(),books);
     }
 
