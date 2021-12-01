@@ -7,7 +7,7 @@ User story number | User story | Task | Status
 [#2](https://github.com/Moiiwa/Library/issues/2) | As a book owner I want to be able to share books | Add to book share status check ability | Done |
 [#3](https://github.com/Moiiwa/Library/issues/3) | As a book owner I want to be able to add new books | Create the book card | Done |
 [#4](https://github.com/Moiiwa/Library/issues/4) | As a book owner I want perform as few steps as possible to add new book | Add ability to identify book with Isbn | Done |
-[#5](https://github.com/Moiiwa/Library/issues/5) | As a client I want to be able to borrow books | Create an ability to notify the owner about the borrow wish | |
+[#5](https://github.com/Moiiwa/Library/issues/5) | As a client I want to be able to borrow books | Create an ability to notify the owner about the borrow wish | Done |
 [#6](https://github.com/Moiiwa/Library/issues/6) | As a client I want to be reminded when I should return book to owner | Create an ability to notify the client about the return day | |
 [#7](https://github.com/Moiiwa/Library/issues/7) | As a book owner I want to get feedback about my books from other users | Add an ability to left feedback | |
 [#8](https://github.com/Moiiwa/Library/issues/8) | As a book owner I want to be able to sell books | Add to book sell status check ability | Done |
@@ -60,7 +60,14 @@ Task | Small tasks | Acceptance tests | Status |
 #### Sprint 3
 Task | Small tasks | Acceptance tests | Status |
 | --- | --- | --- | --- |
-| Add users authentification and authorization modules | Add users authentification and authorization modules | Backen deffirentiates users and sends the data to frontend | Done |
+| Add users authentification and authorization modules | Add users authentification and authorization modules | Backend deffirentiates users and sends the data to frontend | Done |
 |  | Add registration page | name, last name, username and password checks | Done |
 |  | Add login page | username and password checks | Done |
 |  | Create GitHub Actions | build, test and deploy actions | Done |
+
+#### Sprint 4
+Task | Small tasks | Acceptance tests | Status |
+| --- | --- | --- | --- |
+| As a client I want to be able to borrow books | Create an ability to notify the owner about the borrow wish | Books exchenge is available | Done |
+| As a book owner I want to be able to share books | Add to book share status check ability | checkboxe clicks change statuse | Done |
+| As a book owner I want to be able to sell books | Add to book sell status check ability | checkboxe clicks change statuse | Done |
