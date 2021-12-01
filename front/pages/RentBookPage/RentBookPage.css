@@ -1,0 +1,12 @@
+.listWrapper {
+    border-collapse: separate;
+    border-spacing:0 1em;
+}
+
+.header {
+    margin-left: 1.3vw;
+}
+
+td {
+    padding: 0 2em;
+}

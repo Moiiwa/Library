@@ -1,5 +1,6 @@
 import React from 'react'
-import { getBook, updateSharingStatus, updateSellingStatus } from '../../api/book'
+import { getBook } from '../../api/book'
+import { updateRentingStatus, updateSellingStatus } from '../../api/bookStatus'
 import InfoField from '../../components/InfoField/InfoField'
 
 import './BookPage.css'
@@ -43,7 +44,7 @@ class BookPage extends React.Component {
     changeSharingStatus = async () => {
         let data = this.state.bookData
         let oppStatus = !data.rentingStatus
-        await updateSharingStatus(oppStatus, this.state.id)
+        await updateRentingStatus(oppStatus, this.state.id)
         data.rentingStatus = oppStatus
         this.setState({
             bookData: data

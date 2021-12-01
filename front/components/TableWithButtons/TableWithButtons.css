@@ -1,0 +1,8 @@
+.listWrapper {
+    border-collapse: separate;
+    border-spacing:0 1em;
+}
+
+td {
+    padding: 0 2em;
+}

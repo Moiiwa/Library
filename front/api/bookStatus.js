@@ -1,23 +1,17 @@
 /* istanbul ignore file */
-const BASE_LINK = "http://localhost:8000"
 
-const register = async (
-    username,
-    password,
-    firstName,
-    lastName
-) => {
-    return fetch(`${BASE_LINK}/register`, {
+const BASE_LINK = 'http://localhost:8000'
+
+const updateSellingStatus = async (state, id) => {
+    return fetch(`${BASE_LINK}/sell_status`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            username: username,
-            password: password,
-            firstName: firstName,
-            lastName: lastName
+            id: id,
+            sellStatus: state,
         })
     })
         .then((response) => {
@@ -29,19 +23,16 @@ const register = async (
         })
 }
 
-const login = async (
-    username,
-    password
-) => {
-    return fetch(`${BASE_LINK}/login`, {
+const updateRentingStatus = async (state, id) => {
+    return fetch(`${BASE_LINK}/rent_status`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            username: username,
-            password: password
+            id: id,
+            rentStatus: state,
         })
     })
         .then((response) => {
@@ -53,4 +44,4 @@ const login = async (
         })
 }
 
-export { register, login }
+export { updateSellingStatus, updateRentingStatus }

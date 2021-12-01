@@ -1,6 +1,6 @@
 import React from 'react'
 import { getBookWithIsbn } from '../../api/isbn'
-import { postBook, getBooks } from '../../api/book'
+import { postBook } from '../../api/book'
 
 import './Input.css'
 

@@ -5,6 +5,7 @@ import RegistrationPage from '../pages/RegistrationPage/RegistrationPage'
 import LoginPage from '../pages/LoginPage/LoginPage'
 import BuyBookPage from '../pages/BuyBookPage/BuyBookPage'
 import RentBookPage from '../pages/RentBookPage/RentBookPage'
+import ErrorPage from '../pages/ErrorPage/ErrorPage'
 import { history } from "../helpers/history";
 
 import {
@@ -27,6 +28,7 @@ class App extends React.Component {
                         <Route path='/buy' component={BuyBookPage} />
                         <Route path='/rent' component={RentBookPage} />
                         <Route path='/book/:id' component={BookPage} />
+                        <Route path='/error' component={ErrorPage} />
                         <Route path='/login' component={LoginPage} />
                         <Route path='/' component={RegistrationPage} />
                     </Switch>

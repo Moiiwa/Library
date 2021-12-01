@@ -18,6 +18,8 @@ public interface BookRepository extends JpaRepository<Book, Long>{
 
     public List<Book> getAllBySellingStatusAndOwner(boolean status, String owner);
 
-    public List<Book> getAllByRentingStatusAndOwner(boolean status, String owner);
+    public List<Book> getAllByOwner(String owner);
+
+    public List<Book> getAllByHolder(String holder);
 
 }
