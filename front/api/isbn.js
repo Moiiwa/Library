@@ -3,11 +3,11 @@ const getBookWithIsbn = async (isbn) => {
     return fetch(`https://openlibrary.org/isbn/${isbn}.json`)
         .then((response) => {
             if (!response.ok) {
-                throw Error(response.statusText)
+                window.location.href = "/error";
+            } else {
+                return response.json()
             }
-            return response.json()
         })
-        .catch((err) => { console.log('Error: ' + err) });
 }
 
 export { getBookWithIsbn }

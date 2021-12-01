@@ -41,7 +41,7 @@ public class BookController {
     }
 
     /**
-     * Endpoint to get all the books
+     * Endpoint to get all books except rented and in rent
      * @return list of books
      */
     @GetMapping("/get_books")
@@ -51,6 +51,26 @@ public class BookController {
         ResponseEntity response =
                 new ResponseEntity(bookService.getAllBooks(owner), HttpStatus.OK);
         return response;
+    }
+
+    /**
+     * Get all books which are rented by other people (user=owner & user != holder)
+     * @param username owner
+     * @return list of rentable books of user
+     */
+    @GetMapping("/all_rented_books_of")
+    public ResponseEntity getAllRentableBooksOfUser(@RequestParam String username) {
+      return new ResponseEntity(bookService.getAllRentableBooksOfUser(username), HttpStatus.OK);
+    }
+
+    /**
+     * Get all books which user rented (user=holder & user != owner)
+     * @param username owner
+     * @return list of rentable books of user
+     */
+    @GetMapping("/all_rentable_books_of")
+    public ResponseEntity getAllRentedBooksOfUser(@RequestParam String username) {
+      return new ResponseEntity(bookService.getAllRentedBooksOfUser(username), HttpStatus.OK);
     }
 
     /**
@@ -66,51 +86,43 @@ public class BookController {
     }
 
     /**
-     * Endpoint to sell or rent book, depending on field "transactionType"
-     * Sell - to sell, Rent - to rent
-     * @param body
-     * @return
+     * Endpoint to change the rent status of the book
+     * @param body with id and rent status
+     * @return ok status
      */
-    @PostMapping("/sell_rent_book")
-    public ResponseEntity sellBook(@RequestBody SellRentBookDto body){
-        Book book = bookService.getBookById(body.getBookId());
-        if ("Sell".equals(body.getTransactionType())) {
-            book.setOwner(body.getBuyer());
-        }
-        if ("Sell".equals(body.getTransactionType()) || "Rent".equals(body.getTransactionType())){
-            book.setHolder(body.getBuyer());
-        } else {
-            return new ResponseEntity("Wrong transaction type",HttpStatus.BAD_REQUEST);
-        }
-        bookService.addBook(book);
-        return new ResponseEntity("Done", HttpStatus.OK);
+    @PostMapping("/rent_status")
+    public ResponseEntity changeRentStatus(@RequestBody ChangeRentStatusDto body){
+      Book book = bookService.getBookById(body.getId());
+      book.setRentingStatus(body.getRentStatus());
+      bookService.addBook(book);
+      return new ResponseEntity("Done", HttpStatus.OK);
     }
 
-  /**
-   * Endpoint to change the rent status of the book
-   * @param body with id and rent status
-   * @return ok status
-   */
-  @PostMapping("/rent_status")
-  public ResponseEntity changeRentStatus(@RequestBody ChangeRentStatusDto body){
-    Book book = bookService.getBookById(body.getId());
-    book.setRentingStatus(body.getRentStatus());
-    bookService.addBook(book);
-    return new ResponseEntity("Done", HttpStatus.OK);
-  }
+    /**
+     * Endpoint to change the sell status of the book
+     * @param body with id and sell status
+     * @return ok status
+     */
+    @PostMapping("/sell_status")
+    public ResponseEntity changeSellStatus(@RequestBody ChangeSellStatusDto body){
+      Book book = bookService.getBookById(body.getId());
+      book.setSellingStatus(body.getSellStatus());
+      bookService.addBook(book);
+      return new ResponseEntity("Done", HttpStatus.OK);
+    }
 
-  /**
-   * Endpoint to change the sell status of the book
-   * @param body with id and sell status
-   * @return ok status
-   */
-  @PostMapping("/sell_status")
-  public ResponseEntity changeSellStatus(@RequestBody ChangeSellStatusDto body){
-    Book book = bookService.getBookById(body.getId());
-    book.setSellingStatus(body.getSellStatus());
-    bookService.addBook(book);
-    return new ResponseEntity("Done", HttpStatus.OK);
-  }
+    /**
+     * Endpoint to change the rent status of the book
+     * @param body with id and rent status
+     * @return ok status
+     */
+    @PostMapping("/change_holder")
+    public ResponseEntity changeHolder(@RequestBody ChangeHolderDto body){
+      Book book = bookService.getBookById(body.getId());
+      book.setHolder(body.getHolder());
+      bookService.addBook(book);
+      return new ResponseEntity("Done", HttpStatus.OK);
+    }
 
     /**
      * Get all sellable books
@@ -131,29 +143,27 @@ public class BookController {
     }
 
     /**
-     * Get all sellable books of user
-     * @param username owner
-     * @return list of sellable books of user
+     * Change book owner, holder and statuses to imitate buy activity
+     * @return status
      */
-    @GetMapping("/all_sellable_books_of")
-    public ResponseEntity getAllSellableBooksOfUser(@RequestParam String username) {
-        return new ResponseEntity(bookService.getAllSellableBooksOfUser(username), HttpStatus.OK);
-    }
-
-    /**
-     * Get all rentable books of user
-     * @param username owner
-     * @return list of rentable books of user
-     */
-    @GetMapping("/all_rentable_books_of")
-    public ResponseEntity getAllRentableBooksOfUser(@RequestParam String username) {
-        return new ResponseEntity(bookService.getAllRentableBooksOfUser(username), HttpStatus.OK);
-    }
-
     @PostMapping("/buy_book")
     public ResponseEntity buyBook(@RequestBody BuyBookDto body){
       Book book = bookService.getBookById(body.getId());
       book.setOwner(body.getOwner());
+      book.setHolder(body.getHolder());
+      book.setSellingStatus(body.getSellingStatus());
+      book.setRentingStatus(body.getRentingStatus());
+      bookService.addBook(book);
+      return new ResponseEntity("Done", HttpStatus.OK);
+    }
+
+  /**
+   * Change book holder and statuses to imitate buy activity
+   * @return status
+   */
+    @PostMapping("/rent_book")
+    public ResponseEntity rentBook(@RequestBody RentBookDto body){
+      Book book = bookService.getBookById(body.getId());
       book.setHolder(body.getHolder());
       book.setSellingStatus(body.getSellingStatus());
       book.setRentingStatus(body.getRentingStatus());

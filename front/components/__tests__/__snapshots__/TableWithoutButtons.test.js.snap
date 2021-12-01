@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List renders correctly with props 1`] = `
+<table
+  className="table"
+  id="list"
+>
+  <tr>
+    <td
+      className="text-center"
+    >
+      <strong>
+        Name
+      </strong>
+    </td>
+    <td
+      className="text-center"
+    >
+      <strong>
+        Allow selling
+      </strong>
+    </td>
+    <td
+      className="text-center"
+    >
+      <strong>
+        Allow sharing
+      </strong>
+    </td>
+  </tr>
+  <tr
+    key="0"
+  >
+    <td
+      className="text-center"
+    >
+      <Link
+        replace={false}
+        to="/book/1"
+      >
+        title
+      </Link>
+    </td>
+    <td
+      className="text-center"
+    >
+      <input
+        id="sell"
+        onChange={[Function]}
+        type="checkbox"
+      />
+    </td>
+    <td
+      className="text-center"
+    >
+      <input
+        id="share"
+        onChange={[Function]}
+        type="checkbox"
+      />
+    </td>
+  </tr>
+</table>
+`;

@@ -95,55 +95,6 @@ public class BookControllerTest{
     }
 
     @Test
-    public void testSellBook() {
-        Book book = new Book();
-        book.setAuthor("moiwa");
-        book.setDescription("description");
-        book.setHolder("holder");
-        book.setOwner("owner");
-        book.setPages(3);
-        book.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
-        book.setPublisher("publisher");
-        book.setSellingStatus(false);
-        book.setRentingStatus(false);
-        book.setTitle("title");
-        book.setId(1337l);
-
-        SellRentBookDto sellRentBookDto = new SellRentBookDto();
-        sellRentBookDto.setBookId(1337l);
-        sellRentBookDto.setBuyer("not moiwa");
-        sellRentBookDto.setTransactionType("Sell");
-        doNothing().when(bookService).addBook(book);
-        when(bookService.getBookById(book.getId())).thenReturn(book);
-        ResponseEntity result = subj.sellBook(sellRentBookDto);
-        assertEquals(result.getBody(),"Done");
-    }
-
-    @Test
-    public void testSellWithIncorrectType() {
-        Book book = new Book();
-        book.setAuthor("moiwa");
-        book.setDescription("description");
-        book.setHolder("holder");
-        book.setOwner("owner");
-        book.setPages(3);
-        book.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
-        book.setPublisher("publisher");
-        book.setSellingStatus(false);
-        book.setRentingStatus(false);
-        book.setTitle("title");
-        book.setId(1337l);
-
-        SellRentBookDto sellRentBookDto = new SellRentBookDto();
-        sellRentBookDto.setBookId(1337l);
-        sellRentBookDto.setBuyer("not moiwa");
-        sellRentBookDto.setTransactionType("blabla");
-        when(bookService.getBookById(book.getId())).thenReturn(book);
-        ResponseEntity result = subj.sellBook(sellRentBookDto);
-        assertEquals(result.getBody(),"Wrong transaction type");
-    }
-
-    @Test
     public void testChangeRentStatus() {
       Book book = new Book();
       book.setAuthor("moiwa");
@@ -294,41 +245,6 @@ public class BookControllerTest{
         assertEquals(result.getBody(),books);
     }
 
-    @Test
-    public void testGetAllSellableBooksOf() {
-        Book book1 = new Book();
-        book1.setAuthor("moiwa");
-        book1.setDescription("description");
-        book1.setHolder("holder");
-        book1.setOwner("owner");
-        book1.setPages(3);
-        book1.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
-        book1.setPublisher("publisher");
-        book1.setSellingStatus(true);
-        book1.setRentingStatus(true);
-        book1.setTitle("title");
-        book1.setId(1337l);
-        Book book2 = new Book();
-        book2.setAuthor("moiwa");
-        book2.setDescription("description");
-        book2.setHolder("holder");
-        book2.setOwner("owner");
-        book2.setPages(3);
-        book2.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
-        book2.setPublisher("publisher");
-        book2.setSellingStatus(true);
-        book2.setRentingStatus(false);
-        book2.setTitle("title");
-        book2.setId(1337l);
-        List<Book> books = new ArrayList<>();
-        books.add(book1);
-        books.add(book2);
-
-        when(bookService.getAllSellableBooksOfUser("owner")).thenReturn(books);
-        ResponseEntity result = subj.getAllSellableBooksOfUser("owner");
-        assertEquals(result.getBody(),books);
-    }
-
   @Test
   public void buyBook() {
     Book book = new Book();
@@ -347,11 +263,38 @@ public class BookControllerTest{
     BuyBookDto buyBookDto = new BuyBookDto();
     buyBookDto.setId(1337l);
     buyBookDto.setSellingStatus(false);
+    buyBookDto.setRentingStatus(false);
     buyBookDto.setHolder("nemoiwa");
     buyBookDto.setOwner("nemoiwa");
     doNothing().when(bookService).addBook(book);
     when(bookService.getBookById(book.getId())).thenReturn(book);
     ResponseEntity result = subj.buyBook(buyBookDto);
+    assertEquals(result.getBody(),"Done");
+  }
+
+  @Test
+  public void rentBook() {
+    Book book = new Book();
+    book.setAuthor("author");
+    book.setDescription("description");
+    book.setHolder("moiwa");
+    book.setOwner("moiwa");
+    book.setPages(3);
+    book.setPublishedDate(Timestamp.valueOf(LocalDateTime.now()));
+    book.setPublisher("publisher");
+    book.setSellingStatus(true);
+    book.setRentingStatus(false);
+    book.setTitle("title");
+    book.setId(1337l);
+
+    RentBookDto rentBookDto = new RentBookDto();
+    rentBookDto.setId(1337l);
+    rentBookDto.setSellingStatus(false);
+    rentBookDto.setRentingStatus(false);
+    rentBookDto.setHolder("nemoiwa");
+    doNothing().when(bookService).addBook(book);
+    when(bookService.getBookById(book.getId())).thenReturn(book);
+    ResponseEntity result = subj.rentBook(rentBookDto);
     assertEquals(result.getBody(),"Done");
   }
 

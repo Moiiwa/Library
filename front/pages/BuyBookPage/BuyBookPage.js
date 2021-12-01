@@ -1,5 +1,5 @@
 import React from 'react'
-import { getBooksForSell, buyBook } from '../../api/book'
+import { getBooksForSell, buyBook } from '../../api/bookSell'
 
 import './BuyBookPage.css'
 
@@ -71,15 +71,3 @@ class BuyBookPage extends React.Component {
 }
 
 export default BuyBookPage;
-
-
-{/* <div>
-    {this.state.booksList.map((el) =>
-        <div className="listWrapper">
-            <div className="book">{el.title}</div>
-            <button type="button" style={{ display: 'inline' }} className="btn btn-primary">
-                Buy book
-                                </button>
-        </div>
-    )}
-</div> */}
