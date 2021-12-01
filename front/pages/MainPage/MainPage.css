@@ -3,5 +3,13 @@ html, body{
 }
 
 .list {
-    margin-top: 1rem;
+    margin-top: 2vw;
+}
+
+.button-wrapper {
+    margin: 2vw 0 2vw 0;
+}
+
+.m-right {
+    margin-right: 5em;
 }

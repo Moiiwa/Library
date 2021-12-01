@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 const getBookWithIsbn = async (isbn) => {
     return fetch(`https://openlibrary.org/isbn/${isbn}.json`)
         .then((response) => {

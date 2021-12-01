@@ -52,4 +52,16 @@ describe('LoginPage', () => {
         expect(handleSubmitMock).toHaveBeenCalled()
     });
 
+    it('submit with wrong credentials', () => {
+        const fakeEvent = { preventDefault: () => console.log('preventDefault') };
+
+        const instance = wrapper.instance()
+        const handleSubmitMock = jest.spyOn(instance, 'handleSubmit')
+        instance.forceUpdate();
+
+        const but = wrapper.find('#submit')
+        but.simulate('submit', fakeEvent);
+        expect(handleSubmitMock).toHaveBeenCalled()
+    });
+
 });

@@ -1,5 +1,4 @@
-import { history } from "../helpers/history";
-
+/* istanbul ignore file */
 const BASE_LINK = "http://localhost:8000"
 
 const register = async (

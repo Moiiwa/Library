@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 const BASE_LINK = 'http://localhost:8000'
 
 const postBook = async (
@@ -123,4 +124,48 @@ const updateSharingStatus = async (state, id) => {
         .catch((err) => { console.log('Error: ' + err) });
 }
 
-export { postBook, getBooks, getBook, updateSharingStatus, updateSellingStatus }
+const getBooksForSell = async () => {
+    return fetch(`${BASE_LINK}/all_sellable_books`, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+        .then((response) => {
+            if (!response.ok) {
+                throw Error(response.statusText)
+            }
+            return response.json()
+        })
+        .catch((err) => { console.log('Error: ' + err) });
+}
+
+const buyBook = async (user, id) => {
+    return fetch(`${BASE_LINK}/buy_book`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: id,
+            holder: user,
+            owner: user,
+            sellingStatus: false,
+            rentingStatus: false
+
+        })
+    })
+        .then((response) => {
+            console.dir(response)
+            if (!response.ok) {
+                throw Error(response.statusText)
+            }
+            window.location.reload();
+            return response
+        })
+        .catch((err) => { console.log('Error: ' + err) });
+}
+
+export { postBook, getBooks, getBook, updateSharingStatus, updateSellingStatus, getBooksForSell, buyBook }

@@ -1,9 +1,6 @@
 package library.controllers;
 
-import library.dto.AddBookDto;
-import library.dto.ChangeRentStatusDto;
-import library.dto.ChangeSellStatusDto;
-import library.dto.SellRentBookDto;
+import library.dto.*;
 import library.entities.Book;
 import library.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -151,6 +148,17 @@ public class BookController {
     @GetMapping("/all_rentable_books_of")
     public ResponseEntity getAllRentableBooksOfUser(@RequestParam String username) {
         return new ResponseEntity(bookService.getAllRentableBooksOfUser(username), HttpStatus.OK);
+    }
+
+    @PostMapping("/buy_book")
+    public ResponseEntity buyBook(@RequestBody BuyBookDto body){
+      Book book = bookService.getBookById(body.getId());
+      book.setOwner(body.getOwner());
+      book.setHolder(body.getHolder());
+      book.setSellingStatus(body.getSellingStatus());
+      book.setRentingStatus(body.getRentingStatus());
+      bookService.addBook(book);
+      return new ResponseEntity("Done", HttpStatus.OK);
     }
 
 }
