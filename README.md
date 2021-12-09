@@ -73,16 +73,20 @@ To log out from the app click "log out" button on the main page
 
 ## Manual installation
 
-for manual installation check [here](https://github.com/Moiiwa/Library/blob/front_ci/documentation/manual-instalation.md)
+for manual installation check [here](https://github.com/Moiiwa/Library/blob/main/documentation/manual-instalation.md)
 
 ## Application architecture
 
-for application architecture check [here](https://github.com/Moiiwa/Library/blob/front_ci/documentation/architecture.md)
+for application architecture check [here](https://github.com/Moiiwa/Library/blob/main/documentation/architecture.md)
 
 ## Process organisation
 
-for process organisation check [here](https://github.com/Moiiwa/Library/blob/front_ci/documentation/process-organisation.md)
+for process organisation check [here](https://github.com/Moiiwa/Library/blob/main/documentation/process-organisation.md)
 
 ## Product Backlog
 
-for product backlog check [here](https://github.com/Moiiwa/Library/blob/front_ci/documentation/product-backlog.md)
+for product backlog check [here](https://github.com/Moiiwa/Library/blob/main/documentation/product-backlog.md)
+
+## Coverage report
+
+coverage report check [here](https://github.com/Moiiwa/Library/blob/main/documentation/coverage.md)

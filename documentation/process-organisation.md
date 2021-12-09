@@ -11,4 +11,4 @@ Developer Branch Workflow - all work in progress is in different branches, but t
 #### Tools
 - Backend - Spring
 - Frontend - React
-- CI - Docker, GitHub Actions, AWS
+- CI - Docker, GitHub Actions
